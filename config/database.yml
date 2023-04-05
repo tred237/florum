@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: florum_production
-  username: florum
-  password: <%= ENV["FLORUM_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
