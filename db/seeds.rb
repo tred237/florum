@@ -1,15 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 require 'bcrypt'
-User.create(username: "Jane", password_digest: BCrypt::Password.create('test'))
-User.create(username: "Mike", password_digest: BCrypt::Password.create('test2'))
+User.create!(username: "Jane", password_digest: BCrypt::Password.create('test'))
+User.create!(username: "Mike", password_digest: BCrypt::Password.create('test2'))
 
-Plant.create(
+Plant.create!(
     name: "Rose",
     image: "image.jpg",
     light: "lots",
@@ -19,5 +12,5 @@ Plant.create(
     safe_for_pets: true
 )
 
-ForumEntry.create(user_id: 1, plant_id: 1, entry: "Love this plant!")
-ForumEntry.create(user_id: 2, plant_id: 1, entry: "Meh")
+ForumEntry.create!(user_id: 1, plant_id: 1, entry: "Love this plant!")
+ForumEntry.create!(user_id: 2, plant_id: 1, entry: "Meh")
