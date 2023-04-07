@@ -1,7 +1,8 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-function PlantCard({ plant }){
+
+export default function PlantCard({ plant }){
     return(
         <ListGroup.Item>
             <Card>
@@ -15,5 +16,3 @@ function PlantCard({ plant }){
         </ListGroup.Item>
     )
 }
-
-export default PlantCard

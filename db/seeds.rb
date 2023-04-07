@@ -1,6 +1,6 @@
 require 'bcrypt'
-User.create!(username: "Jane", password_digest: BCrypt::Password.create('test'))
-User.create!(username: "Mike", password_digest: BCrypt::Password.create('test2'))
+# User.create!(username: "Jane", password_digest: BCrypt::Password.create('testerefrfr'))
+# User.create!(username: "Mike", password_digest: BCrypt::Password.create('tester'))
 
 Plant.create!(
     name: "Rose",
