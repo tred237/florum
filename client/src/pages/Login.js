@@ -1,7 +1,7 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
-export default function Login() {
+export default function Login({ onLoginTransitionClick }) {
     return (
         <div>
             <Form>
@@ -15,6 +15,7 @@ export default function Login() {
                 </Form.Group>
                 <Button variant="success" type="submit">Log in</Button>
             </Form>
+            <Button variant="success" type="click" onClick={onLoginTransitionClick}>Sign up</Button>
         </div>
     )
 }

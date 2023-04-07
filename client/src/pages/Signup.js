@@ -7,7 +7,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 import ResponseError from "../components/ResponseError"
 
-export default function Signup() {
+export default function Signup({ onLoginTransitionClick }) {
     const formDataDefault = {
         username: '',
         password: '',
@@ -73,6 +73,7 @@ export default function Signup() {
             <ListGroup>
                 {signupError ? signupError.map((e,index) => <ResponseError key={index} responseItem={e} />) : null}
             </ListGroup>
+            <Button variant="success" type="click" onClick={onLoginTransitionClick}>Log in</Button>
         </div>
     )
 }
