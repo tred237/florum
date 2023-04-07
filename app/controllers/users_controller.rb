@@ -2,14 +2,14 @@ class UsersController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :user_record_invalid_response
 
     def create
-        user = User.create!(users_pararms)
+        user = User.create!(users_params)
         session[:user_id] = user.id
         render json: user
     end
 
     private
 
-    def users_pararms
+    def users_params
         params.permit(:username, :password, :password_confirmation)
     end
 

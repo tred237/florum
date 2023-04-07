@@ -14,8 +14,29 @@ export default function Signup() {
 
     const handleChange = (e) => setFormData({...formData, [e.target.name]: e.target.value})
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        fetch('/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                'username': {...formData}.username,
+                'password': {...formData}.password,
+                'password_confirmation': {...formData}.passwordConfirmation
+            })
+        }).then(r => r.json())
+        .then(data => console.log(data))
+
+        setFormData(formDataDefault)
+    }
+
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group>
                 <Form.Label>Username</Form.Label>
                 <Form.Control placeholder="Enter username"
