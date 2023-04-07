@@ -2,15 +2,18 @@ import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Login from "../pages/Login"
+import Home from "../pages/Home"
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [plants, setPlants] = useState([]);
 
   useEffect(() => {
-    fetch("/hello")
+    fetch("/plants")
       .then((r) => r.json())
-      .then((data) => setCount(data.count));
+      .then((data) => setPlants(data));
   }, []);
+
+  console.log(plants)
 
   return (
       <div className="App">
@@ -18,11 +21,8 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
           <Route path="/">
-            <h1>Page Count: {count}</h1>
+            <Home plants={plants}/>
           </Route>
         </Switch>
       </div>
