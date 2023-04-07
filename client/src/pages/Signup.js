@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -14,6 +16,7 @@ export default function Signup() {
 
     const [formData, setFormData] = useState(formDataDefault)
     const [signupError, setSignupError] = useState([])
+    const history = useHistory()
 
     const handleChange = (e) => setFormData({...formData, [e.target.name]: e.target.value})
 
@@ -33,7 +36,7 @@ export default function Signup() {
             })
         })
         .then(r => {
-            r.ok ? console.log("Success!") : r.json().then(data => setSignupError(data.errors))
+            r.ok ? history.push('/login') : r.json().then(data => setSignupError(data.errors))
         })
 
         setFormData(formDataDefault)

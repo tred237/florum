@@ -15,8 +15,6 @@ export default function App() {
       })
   }, [])
 
-  // console.log(plants)
-
   return (
       <div className="App">
         <Switch>
@@ -27,7 +25,6 @@ export default function App() {
             <Login />
           </Route>
           <Route exact path="/">
-            {/* <p>test</p> */}
             <Home plants={plants}/>
           </Route>
         </Switch>
