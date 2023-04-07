@@ -1,8 +1,9 @@
 import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 function PlantCard({ plant }){
     return(
-        <li>
+        <ListGroup.Item>
             <Card>
                 <Card.Img variant="top" src={plant.image} alt={plant.name} />
                     <Card.Body>
@@ -11,7 +12,7 @@ function PlantCard({ plant }){
                         </Card.Text>
                     </Card.Body>
             </Card>
-        </li>
+        </ListGroup.Item>
     )
 }
 

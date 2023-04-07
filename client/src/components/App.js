@@ -9,8 +9,9 @@ function App() {
 
   useEffect(() => {
     fetch("/plants")
-      .then((r) => r.json())
-      .then((data) => setPlants(data));
+      .then(r => {
+        if(r.ok) r.json().then(data => setPlants(data))
+      })
   }, []);
 
   console.log(plants)
@@ -21,7 +22,7 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <Home plants={plants}/>
           </Route>
         </Switch>
