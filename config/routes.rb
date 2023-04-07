@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # route to test configuration
   get '/hello', to: 'application#hello_world'
   resources :plants, only: [:index]
+  post '/signup', to: 'users#create'
 
   get '*path',
   to: 'fallback#index',

@@ -1,10 +1,12 @@
+import ListGroup from 'react-bootstrap/ListGroup'
+
 import PlantCard from "../components/PlantCard"
 
 function Home({ plants }) {
     return(
-        <ul>
+        <ListGroup> 
             {plants.map((plant) => <PlantCard key={plant.id} plant={plant} />)}
-        </ul>
+        </ListGroup>
     )
 }
 
