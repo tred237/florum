@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
   get '/current-user', to: 'sessions#show'
+  delete '/logout', to: 'sessions#destroy'
 
   get '*path',
   to: 'fallback#index',
