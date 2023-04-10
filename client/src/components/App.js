@@ -14,16 +14,13 @@ export default function App() {
   useEffect(() => {
     fetch('/current-user')
     .then(r => {
-      r.ok ? history.push("/") : history.push("/login") 
+      if(r.ok) {
+        r.json().then(data => setUser(data.username))
+        history.push("/")
+      }
+      else history.push("/login") 
     })
   })
-
-  // useEffect(() => {
-  //   fetch("/plants")
-  //     .then(r => {
-  //       if(r.ok) r.json().then(data => setPlants(data))
-  //     })
-  // }, [])
 
   const handleLoginTransitionClick = () => {
     setIsLogin(!isLogin)
@@ -37,10 +34,10 @@ export default function App() {
             <Signup onLoginTransitionClick={handleLoginTransitionClick} />
           </Route>
           <Route exact path="/login">
-            <Login onLoginTransitionClick={handleLoginTransitionClick} />
+            <Login setUser={setUser} onLoginTransitionClick={handleLoginTransitionClick} />
           </Route>
           <Route exact path="/">
-            <Home plants={plants}/>
+            <Home plants={plants} user={user} />
           </Route>
         </Switch>
       </div>
