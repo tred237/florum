@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/hello', to: 'application#hello_world'
   resources :plants, only: [:index]
   post '/signup', to: 'users#create'
+  post '/login', to: 'sessions#create'
+  get '/current-user', to: 'sessions#show'
 
   get '*path',
   to: 'fallback#index',

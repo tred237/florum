@@ -4,9 +4,10 @@ import PlantCard from "../components/PlantCard"
 
 function Home({ plants }) {
     return(
-        <ListGroup> 
-            {plants.map((plant) => <PlantCard key={plant.id} plant={plant} />)}
-        </ListGroup>
+        <h1>Welcome!</h1>
+        // <ListGroup> 
+        //     {plants.map((plant) => <PlantCard key={plant.id} plant={plant} />)}
+        // </ListGroup>
     )
 }
 
