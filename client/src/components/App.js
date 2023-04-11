@@ -7,7 +7,6 @@ import Signup from "../pages/Signup";
 
 export default function App() {
   const [user, setUser] = useState(null)
-  const [plants, setPlants] = useState([])
   const [isLogin, setIsLogin] = useState(true)
   const history = useHistory()
 
@@ -37,7 +36,7 @@ export default function App() {
             <Login setUser={setUser} onLoginTransitionClick={handleLoginTransitionClick} />
           </Route>
           <Route exact path="/">
-            <Home plants={plants} user={user} />
+            <Home user={user} />
           </Route>
         </Switch>
       </div>
