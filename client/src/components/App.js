@@ -17,7 +17,7 @@ export default function App() {
         r.json().then(data => setUser(data.username))
         history.push("/")
       }
-      else isLogin ? history.push("/signup") : history.push("/login")
+      else isLogin ? history.push("/login") : history.push("/signup")
     })
   })
 
