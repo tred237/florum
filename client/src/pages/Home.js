@@ -1,12 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button';
 
 import PlantCard from "../components/PlantCard"
+import { UserContext } from '../context/User';
 
-export default function Home({ user }) {
+export default function Home() {
+    const { user } = useContext(UserContext);
     const [plants, setPlants] = useState([])
     const history = useHistory()
 
