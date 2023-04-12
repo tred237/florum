@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { UserContext } from '../context/User';
 
-export default function Login({ setUser, onLoginTransitionClick }) {
+export default function Login({ onLoginTransitionClick }) {
     const formDataDefault = {
         username: '',
         password: ''
     }
 
+    const { setUser } = useContext(UserContext)
     const [formData, setFormData] = useState(formDataDefault)
     const history = useHistory()
 
