@@ -12,6 +12,7 @@ export default function Login({ onLoginTransitionClick }) {
 
     const { setUser } = useContext(UserContext)
     const [formData, setFormData] = useState(formDataDefault)
+    const [loginError, setLoginError] = useState(null)
     const history = useHistory()
 
     const handleChange = e => setFormData({...formData, [e.target.name]:e.target.value})
@@ -32,8 +33,10 @@ export default function Login({ onLoginTransitionClick }) {
         })
         .then(r => {
             if(r.ok) {
-                r.json().then(data => setUser(data.username))
+                r.json().then(user => setUser(user.username))
                 history.push("/")
+            } else {
+                r.json().then(err => setLoginError(err.error))
             }
         })
     }
@@ -49,6 +52,7 @@ export default function Login({ onLoginTransitionClick }) {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Enter password" name="password" onChange={handleChange}/>
                 </Form.Group>
+                <p>{loginError}</p>
                 <Button variant="success" type="submit">Log in</Button>
             </Form>
             <Button variant="success" type="click" onClick={onLoginTransitionClick}>Sign up</Button>
