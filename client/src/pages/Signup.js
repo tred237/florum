@@ -68,11 +68,11 @@ export default function Signup({ onLoginTransitionClick }) {
                                 value={formData.passwordConfirmation} 
                                 onChange={handleChange} />
                 </Form.Group>
+                <ListGroup>
+                    {signupError ? signupError.map((e,index) => <ResponseError key={index} responseItem={e} />) : null}
+                </ListGroup>
                 <Button variant="success" type="submit">Create Account</Button>
             </Form>
-            <ListGroup>
-                {signupError ? signupError.map((e,index) => <ResponseError key={index} responseItem={e} />) : null}
-            </ListGroup>
             <Button variant="success" type="click" onClick={onLoginTransitionClick}>Log in</Button>
         </div>
     )
