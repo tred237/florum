@@ -1,12 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Switch, Route, useHistory, Redirect } from "react-router-dom";
 
 import Login from "../pages/Login"
 import Home from "../pages/Home"
 import Signup from "../pages/Signup";
-import { UserProvider } from "../context/User";
+import { UserContext } from '../context/User';
 
 export default function App() {
+  const { authenticationComplete, user, setUser } = useContext(UserContext);
   const [isLogin, setIsLogin] = useState(true)
   const history = useHistory()
 
@@ -18,7 +19,6 @@ export default function App() {
   return (
       <div className="App">
         <Switch>
-          <UserProvider>
             <Route exact path="/signup">
               <Signup onLoginTransitionClick={handleLoginTransitionClick} />
             </Route>
@@ -26,12 +26,11 @@ export default function App() {
               <Login onLoginTransitionClick={handleLoginTransitionClick} />
             </Route>
             <Route exact path="/home">
-              <Home />
+              {authenticationComplete ? <Home /> : null}
             </Route>
             <Route path="/">
               <Redirect to="/home" />
             </Route>
-          </UserProvider>
         </Switch>
       </div>
   )

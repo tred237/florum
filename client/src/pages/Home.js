@@ -7,7 +7,7 @@ import PlantCard from "../components/PlantCard"
 import { UserContext } from '../context/User';
 
 export default function Home() {
-    const { authenticationComplete, user, setUser } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const [plants, setPlants] = useState([])
     const history = useHistory()
 
@@ -32,15 +32,17 @@ export default function Home() {
         })
     }
 
-    if(authenticationComplete && !user) return <Redirect push to="/login" />
-
-    return(
-        <div>
-            <h1>{`Welcome ${user ? user.username : null}!`}</h1>
-            <Button onClick={handleLogoutClick}>Logout</Button>
-            <ListGroup> 
-                {plants ? plants.map((plant) => <PlantCard key={plant.id} plant={plant} />) : null}
-            </ListGroup>
-        </div>
-    )
+    // if(authenticationComplete && !user) return <Redirect push to="/login" />
+    if(!user) return <Redirect push to="/login" />
+    else {
+        return(
+            <div>
+                <h1>{`Welcome ${user.username}!`}</h1>
+                <Button onClick={handleLogoutClick}>Logout</Button>
+                <ListGroup> 
+                    {plants ? plants.map((plant) => <PlantCard key={plant.id} plant={plant} />) : null}
+                </ListGroup>
+            </div>
+        )
+    }
 }

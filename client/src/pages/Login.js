@@ -36,7 +36,7 @@ export default function Login({ onLoginTransitionClick }) {
             if(r.ok) {
                 r.json().then(user => {
                     setUser(user)
-                    history.push("/")
+                    history.push("/home")
                 })
             } else {
                 r.json().then(err => setLoginError(err.error))
