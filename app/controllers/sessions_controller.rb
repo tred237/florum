@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :user_unauthorized_response
 
     def create
-        user = User.find_by(username: params[:username])
+        user = User.find_by("username = ? or email = ?", params[:email_or_username], params[:email_or_username])
         if user&.authenticate(params[:password])
             session[:user_id] = user.id
             render json: user, status: :created

@@ -6,7 +6,7 @@ import { UserContext } from '../context/User';
 
 export default function Login({ onLoginTransitionClick }) {
     const formDataDefault = {
-        username: '',
+        email_or_username: '',
         password: ''
     }
 
@@ -27,7 +27,7 @@ export default function Login({ onLoginTransitionClick }) {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                'username': {...formData}.username,
+                'email_or_username': {...formData}.email_or_username,
                 'password': {...formData}.password,
             })
         })
@@ -45,12 +45,19 @@ export default function Login({ onLoginTransitionClick }) {
         <div>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control placeholder="Enter username" name="username" onChange={handleChange} />
+                    <Form.Label>Email Address or Username</Form.Label>
+                    <Form.Control placeholder="Enter email address or username" 
+                                name="email_or_username" 
+                                value={formData.email_or_username}
+                                onChange={handleChange} />
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Enter password" name="password" onChange={handleChange}/>
+                    <Form.Control type="password" 
+                                placeholder="Enter password" 
+                                name="password" 
+                                value={formData.password}
+                                onChange={handleChange}/>
                 </Form.Group>
                 <p>{loginError}</p>
                 <Button variant="success" type="submit">Log in</Button>

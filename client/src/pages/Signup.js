@@ -38,10 +38,11 @@ export default function Signup({ onLoginTransitionClick }) {
             })
         })
         .then(r => {
-            r.ok ? history.push('/login') : r.json().then(data => setSignupError(data.errors))
+            if(r.ok){
+                setFormData(formDataDefault)
+                history.push('/login')
+            } else r.json().then(data => setSignupError(data.errors))
         })
-
-        setFormData(formDataDefault)
     }
 
     return (
