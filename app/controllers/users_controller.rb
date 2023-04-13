@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     private
 
     def users_params
-        params.permit(:username, :password, :password_confirmation)
+        params.permit(:email, :username, :password, :password_confirmation)
     end
 
     def user_record_invalid_response(invalid)

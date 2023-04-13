@@ -9,6 +9,7 @@ import ResponseError from "../components/ResponseError"
 
 export default function Signup({ onLoginTransitionClick }) {
     const formDataDefault = {
+        email: '',
         username: '',
         password: '',
         passwordConfirmation: ''
@@ -30,6 +31,7 @@ export default function Signup({ onLoginTransitionClick }) {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
+                'email': {...formData}.email,
                 'username': {...formData}.username,
                 'password': {...formData}.password,
                 'password_confirmation': {...formData}.passwordConfirmation
@@ -45,6 +47,14 @@ export default function Signup({ onLoginTransitionClick }) {
     return (
         <div>
             <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                    <Form.Label>Email Address</Form.Label>
+                    <Form.Control type='email' 
+                                placeholder="Enter email address"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange} />
+                </Form.Group>
                 <Form.Group>
                     <Form.Label>Username</Form.Label>
                     <Form.Control placeholder="Enter username"
