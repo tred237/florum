@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory, Redirect } from "react-router-dom";
 
 import Login from "../pages/Login"
 import Home from "../pages/Home"
@@ -25,8 +25,11 @@ export default function App() {
             <Route exact path="/login">
               <Login onLoginTransitionClick={handleLoginTransitionClick} />
             </Route>
-            <Route exact path="/">
-                <Home />
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route path="/">
+              <Redirect to="/home" />
             </Route>
           </UserProvider>
         </Switch>
