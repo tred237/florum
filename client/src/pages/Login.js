@@ -33,7 +33,7 @@ export default function Login({ onLoginTransitionClick }) {
         })
         .then(r => {
             if(r.ok) {
-                r.json().then(user => setUser(user.username))
+                r.json().then(user => setUser(user))
                 history.push("/")
             } else {
                 r.json().then(err => setLoginError(err.error))

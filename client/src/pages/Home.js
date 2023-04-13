@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button';
 
@@ -8,7 +7,7 @@ import PlantCard from "../components/PlantCard"
 import { UserContext } from '../context/User';
 
 export default function Home() {
-    const { user } = useContext(UserContext);
+    const { user, setUser } = useContext(UserContext);
     const [plants, setPlants] = useState([])
     const history = useHistory()
 
@@ -26,13 +25,18 @@ export default function Home() {
                 'Content-Type': 'application/json'
             }
         }).then(r => {
-            if(r.ok) history.push("/login")
+            if(r.ok) {
+                history.push("/login")
+                setUser(null)
+            } else console.log("Logout unsuccessful")
         })
     }
 
+    // console.log(user)
+
     return(
         <div>
-            <h1>{`Welcome ${user}!`}</h1>
+            <h1>{`Welcome ${user ? user.username : null}!`}</h1>
             <Button onClick={handleClick}>Logout</Button>
             <ListGroup> 
                 {plants ? plants.map((plant) => <PlantCard key={plant.id} plant={plant} />) : null}
