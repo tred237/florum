@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         user = User.find_by("username = ? or email = ?", params[:email_or_username], params[:email_or_username])
         if user&.authenticate(params[:password])
             session[:user_id] = user.id
-            render json: user, status: :created
+            render json: user, serializer: UserSerializer, status: :created
         else
             render json: {error: "Invalid login credentials"}, status: :unauthorized
         end
@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
     def show
         user = User.find(session[:user_id])
-        render json: user, status: :ok
+        render json: user, serializer: UserSerializer, status: :ok
     end
 
     def destroy

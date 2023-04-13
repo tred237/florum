@@ -41,7 +41,7 @@ export default function Signup({ onLoginTransitionClick }) {
             if(r.ok){
                 setFormData(formDataDefault)
                 history.push('/login')
-            } else r.json().then(data => setSignupError(data.errors))
+            } else r.json().then(err => setSignupError(err.errors))
         })
     }
 
