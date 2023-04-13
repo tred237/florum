@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup'
 import Button from 'react-bootstrap/Button';
 
@@ -7,7 +7,7 @@ import PlantCard from "../components/PlantCard"
 import { UserContext } from '../context/User';
 
 export default function Home() {
-    const { user, setUser } = useContext(UserContext);
+    const { authenticationComplete, user, setUser } = useContext(UserContext);
     const [plants, setPlants] = useState([])
     const history = useHistory()
 
@@ -18,7 +18,7 @@ export default function Home() {
         })
     }, [])
 
-    const handleClick = () => {
+    const handleLogoutClick = () => {
         fetch('/logout', {
             method: 'DELETE',
             headers: {
@@ -32,12 +32,12 @@ export default function Home() {
         })
     }
 
-    // console.log(user)
+    if(authenticationComplete && !user) return <Redirect push to="/login" />
 
     return(
         <div>
             <h1>{`Welcome ${user ? user.username : null}!`}</h1>
-            <Button onClick={handleClick}>Logout</Button>
+            <Button onClick={handleLogoutClick}>Logout</Button>
             <ListGroup> 
                 {plants ? plants.map((plant) => <PlantCard key={plant.id} plant={plant} />) : null}
             </ListGroup>
