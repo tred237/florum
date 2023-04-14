@@ -20,7 +20,15 @@ export default function AddPlant() {
 
     const [formData, setFormData] = useState(formDataDefault)
 
-    const handleChange = e => setFormData({...formData, [e.target.name]:e.target.value})
+    const handleChange = e => {
+        let value
+        if(e.target.name === 'safe_for_pets') {
+            e.target.value === 'true' ? value = true : value = false
+        } else {
+            value = e.target.value
+        }
+        setFormData({...formData, [e.target.name]:value})
+    }
 
     const handleSubmit = e => {
         e.preventDefault()
