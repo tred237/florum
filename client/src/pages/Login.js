@@ -27,10 +27,7 @@ export default function Login({ onLoginTransitionClick }) {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({
-                'email_or_username': {...formData}.email_or_username,
-                'password': {...formData}.password,
-            })
+            body: JSON.stringify({...formData})
         })
         .then(r => {
             if(r.ok) {
