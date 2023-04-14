@@ -14,7 +14,7 @@ class PlantsController < ApplicationController
     private
 
     def plant_params
-        params.permit(:name, :image, :light, :water, :size, :description, :safe_for_pets)
+        params.permit(:name, :image, :light, :water, :size, :description, :safe_for_pets, :owner_id)
     end
 
     def plant_record_invalid_response(invalid)

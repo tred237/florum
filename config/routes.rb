@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # route to test configuration
   get '/hello', to: 'application#hello_world'
   resources :plants, only: [:index, :create]
+  resources :forum_entries, only: [:create]
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
   get '/current-user', to: 'sessions#show'

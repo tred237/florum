@@ -3,4 +3,5 @@ class PlantSerializer < ActiveModel::Serializer
 
   has_many :forum_entries
   has_many :users, through: :forum_entries
+  belongs_to :owner, foreign_key: :owner_id, class_name: 'User'
 end
