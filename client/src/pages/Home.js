@@ -32,7 +32,6 @@ export default function Home() {
         })
     }
 
-    // if(authenticationComplete && !user) return <Redirect push to="/login" />
     if(!user) return <Redirect push to="/login" />
     else {
         return(

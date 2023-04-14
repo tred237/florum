@@ -7,7 +7,7 @@ import Signup from "../pages/Signup";
 import { UserContext } from '../context/User';
 
 export default function App() {
-  const { authenticationComplete, user, setUser } = useContext(UserContext);
+  const { authenticationComplete } = useContext(UserContext);
   const [isLogin, setIsLogin] = useState(true)
   const history = useHistory()
 
