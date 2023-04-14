@@ -19,6 +19,8 @@ export function UserProvider({ children }) {
         })
     },[])
 
+    console.log(user)
+
     return (
         <UserContext.Provider value={{ authenticationComplete, user, setUser }}>
             {children}
