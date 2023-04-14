@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
@@ -19,6 +20,7 @@ export default function AddPlant() {
     }
 
     const [formData, setFormData] = useState(formDataDefault)
+    const history = useHistory()
 
     const handleChange = e => {
         let value
@@ -32,9 +34,19 @@ export default function AddPlant() {
 
     const handleSubmit = e => {
         e.preventDefault()
+
+        fetch('/plants', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({...formData})
+        })
+        .then(r => {
+            if(r.ok) r.json().then(() => history.push("/home"))
+        })
     }
-    
-    console.log(formData)
 
     return (
         <div>

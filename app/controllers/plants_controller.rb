@@ -7,6 +7,7 @@ class PlantsController < ApplicationController
     end
 
     def create
+        # byebug
         plant = Plant.create!(plant_params)
         render json: plant, status: :created
     end
