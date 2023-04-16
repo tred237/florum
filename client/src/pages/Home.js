@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup'
 
 import PlantCard from "../components/PlantCard"
@@ -19,12 +20,12 @@ export default function Home() {
     if(!user) return <Redirect push to="/login" />
     else {
         return(
-            <div>
+            <Container>
                 <h1>{`Welcome ${user.username}!`}</h1>
                 <ListGroup> 
                     {plants ? plants.map((plant) => <PlantCard key={plant.id} plant={plant} />) : null}
                 </ListGroup>
-            </div>
+            </Container>
         )
     }
 }

@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
@@ -49,7 +50,7 @@ export default function AddPlant() {
     }
 
     return (
-        <div>
+        <Container>
             <h1>Add Plant</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
@@ -114,6 +115,6 @@ export default function AddPlant() {
                 </Form.Group>
                 <Button variant="success" type="submit">Add Plant</Button>
             </Form>
-        </div>
+        </Container>
     )
 }
