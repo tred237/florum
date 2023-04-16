@@ -1,4 +1,6 @@
 class PlantsController < ApplicationController
+    before_action :authorize
+
     rescue_from ActiveRecord::RecordInvalid, with: :plant_record_invalid_response
 
     def index
@@ -7,7 +9,6 @@ class PlantsController < ApplicationController
     end
 
     def create
-        # byebug
         plant = Plant.create!(plant_params)
         render json: plant, status: :created
     end
