@@ -1,11 +1,11 @@
 import { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
 import { UserContext } from '../context/User';
 import LoginForm from '../components/LoginForm';
 
-export default function Login({ onLoginTransitionClick }) {
+export default function Login() {
     const formDataDefault = {
         email_or_username: '',
         password: ''
@@ -16,7 +16,10 @@ export default function Login({ onLoginTransitionClick }) {
     const [loginError, setLoginError] = useState(null)
     const history = useHistory()
 
-    const handleChange = e => setFormData({...formData, [e.target.name]:e.target.value})
+    const handleChange = e => {
+        if(loginError) setLoginError(null)
+        setFormData({...formData, [e.target.name]:e.target.value})
+    }
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -42,12 +45,11 @@ export default function Login({ onLoginTransitionClick }) {
     }
 
     return (
-        <div>
+        <Container>
             <LoginForm formData={formData}
-                       loginError={loginError}
-                       handleSubmit={handleSubmit}
-                       handleChange={handleChange}/>
-            <Button variant="success" type="click" onClick={onLoginTransitionClick}>Sign up</Button>
-        </div>
+                    loginError={loginError}
+                    handleSubmit={handleSubmit}
+                    handleChange={handleChange}/>
+        </Container>
     )
 }

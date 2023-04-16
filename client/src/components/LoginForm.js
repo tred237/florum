@@ -21,7 +21,7 @@ export default function LoginForm({ formData, loginError, handleSubmit, handleCh
                                 value={formData.password}
                                 onChange={handleChange}/>
                 </Form.Group>
-                <p>{loginError}</p>
+                {loginError ? <p>{loginError}</p> : null}
                 <Button variant="success" type="submit">Log in</Button>
             </Form>
         </React.Fragment>

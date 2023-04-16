@@ -1,30 +1,26 @@
-import { useState, useContext } from "react";
-import { Switch, Route, useHistory, Redirect } from "react-router-dom";
+import { useContext } from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import { UserContext } from '../context/User';
 import Login from "../pages/Login"
 import Signup from "../pages/Signup";
 import Home from "../pages/Home"
 import AddPlant from "../pages/AddPlant";
+import NavBarLoggedOut from "./NavBarLoggedOut";
+import NavBarLoggedin from "./NavBarLoggedIn";
 
 export default function App() {
-  const { authenticationComplete } = useContext(UserContext);
-  const [isLogin, setIsLogin] = useState(true)
-  const history = useHistory()
-
-  const handleLoginTransitionClick = () => {
-    setIsLogin(!isLogin)
-    isLogin ? history.push("/signup") : history.push("/login")
-  }
+  const { authenticationComplete, user } = useContext(UserContext);
 
   return (
       <div className="App">
+        {user ? <NavBarLoggedin /> : <NavBarLoggedOut />}
         <Switch>
             <Route exact path="/signup">
-              <Signup onLoginTransitionClick={handleLoginTransitionClick} />
+              <Signup />
             </Route>
             <Route exact path="/login">
-              <Login onLoginTransitionClick={handleLoginTransitionClick} />
+              <Login />
             </Route>
             <Route exact path="/home">
               {authenticationComplete ? <Home /> : null}

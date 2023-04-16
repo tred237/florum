@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
 
 import SignupForm from "../components/SignupForm";
+import Container from "react-bootstrap/Container";
 
-export default function Signup({ onLoginTransitionClick }) {
+export default function Signup() {
     const formDataDefault = {
         email: '',
         username: '',
@@ -16,7 +16,10 @@ export default function Signup({ onLoginTransitionClick }) {
     const [signupError, setSignupError] = useState([])
     const history = useHistory()
 
-    const handleChange = e => setFormData({...formData, [e.target.name]: e.target.value})
+    const handleChange = e => {
+        if(signupError) setSignupError([])
+        setFormData({...formData, [e.target.name]: e.target.value})
+    }
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -38,12 +41,11 @@ export default function Signup({ onLoginTransitionClick }) {
     }
 
     return (
-        <div>
+        <Container>
             <SignupForm formData={formData} 
                         signupError={signupError} 
                         handleSubmit={handleSubmit} 
                         handleChange={handleChange}/>
-            <Button variant="success" type="click" onClick={onLoginTransitionClick}>Log in</Button>
-        </div>
+        </Container>
     )
 }
