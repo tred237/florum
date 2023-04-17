@@ -1,21 +1,15 @@
-import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup'
 
 import PlantCard from "../components/PlantCard"
 import { UserContext } from '../context/User';
+import { PlantContext } from '../context/Plant';
 
 export default function Home() {
     const { user } = useContext(UserContext);
-    const [plants, setPlants] = useState([])
-
-    useEffect(() => {
-        fetch("/plants")
-        .then(r => {
-            if(r.ok) r.json().then(data => setPlants(data))
-        })
-    }, [])
+    const { plants } = useContext(PlantContext);
 
     if(!user) return <Redirect push to="/login" />
     else {

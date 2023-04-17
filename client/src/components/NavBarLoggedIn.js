@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 import { UserContext } from '../context/User';
-import AddPlantModal from './AddPlantModal';
+import AddPlantModal from '../modals/AddPlantModal';
 
 export default function NavBarLoggedIn() {
     const { setUser } = useContext(UserContext)

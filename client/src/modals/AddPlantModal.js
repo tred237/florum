@@ -1,5 +1,5 @@
 import Modal from 'react-bootstrap/Modal';
-import AddPlant from '../pages/AddPlant';
+import AddPlantForm from '../components/AddPlantForm';
 
 export default function AddPlantModal({ showModal, onCloseModal }) {
     return (
@@ -8,7 +8,7 @@ export default function AddPlantModal({ showModal, onCloseModal }) {
                 <Modal.Title>Add a new plant</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {/* <AddPlant /> */}
+                <AddPlantForm onCloseModal={onCloseModal} />
             </Modal.Body>
         </Modal>
     )
