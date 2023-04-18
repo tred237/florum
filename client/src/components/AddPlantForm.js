@@ -54,7 +54,6 @@ export default function AddPlant({ onCloseModal }) {
 
     return (
         <Container>
-            <h1>Add Plant</h1>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Name *</Form.Label>

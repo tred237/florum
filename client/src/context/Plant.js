@@ -15,7 +15,7 @@ export function PlantProvider({ children }) {
                 if(r.ok) r.json().then(data => setPlants(data))
             })
         }
-    }, [])
+    }, [user])
 
     console.log(plants)
 
