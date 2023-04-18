@@ -1,6 +1,5 @@
 class PlantsController < ApplicationController
     before_action :authorize
-    skip_before_action :authorize, only: [:show]
 
     rescue_from ActiveRecord::RecordInvalid, with: :plant_record_invalid_response
     rescue_from ActiveRecord::RecordNotFound, with: :plant_record_not_found_repsonse

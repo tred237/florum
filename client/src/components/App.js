@@ -8,6 +8,7 @@ import SignupPage from "../pages/SignupPage";
 import HomePage from "../pages/HomePage"
 import NavBarLoggedOut from "./NavBarLoggedOut";
 import NavBarLoggedin from "./NavBarLoggedIn";
+import PlantPage from "../pages/PlantPage";
 
 export default function App() {
   const { authenticationComplete, user } = useContext(UserContext);
@@ -25,6 +26,9 @@ export default function App() {
             </Route>
             <Route exact path="/home">
               {authenticationComplete ? <HomePage/> : null}
+            </Route>
+            <Route exact path="/plant/:id">
+              {authenticationComplete ? <PlantPage/> : null}
             </Route>
             <Route path="/">
               <Redirect to="/home" />
