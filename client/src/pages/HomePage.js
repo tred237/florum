@@ -7,7 +7,7 @@ import PlantCard from "../components/PlantCard"
 import { UserContext } from '../context/User';
 import { PlantContext } from '../context/Plant';
 
-export default function Home() {
+export default function HomePage() {
     const { user } = useContext(UserContext);
     const { plants } = useContext(PlantContext);
 

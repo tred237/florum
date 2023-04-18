@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import { UserContext } from '../context/User';
 import LoginForm from '../components/LoginForm';
 
-export default function Login() {
+export default function LoginPage() {
     const formDataDefault = {
         email_or_username: '',
         password: ''

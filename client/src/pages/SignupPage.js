@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import SignupForm from "../components/SignupForm";
 import Container from "react-bootstrap/Container";
 
-export default function Signup() {
+export default function SignupPage() {
     const formDataDefault = {
         email: '',
         username: '',
