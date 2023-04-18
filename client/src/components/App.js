@@ -24,7 +24,7 @@ export default function App() {
               <LoginPage />
             </Route>
             <Route exact path="/home">
-              {authenticationComplete ? <HomePage /> : null}
+              {authenticationComplete ? <HomePage/> : null}
             </Route>
             <Route path="/">
               <Redirect to="/home" />

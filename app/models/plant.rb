@@ -6,5 +6,5 @@ class Plant < ApplicationRecord
     validates :name, presence: true
     validates :light, presence: true
     validates :water, presence: true
-    validates :safe_for_pets, presence: true
+    validates :safe_for_pets, inclusion: [true, false]
 end
