@@ -26,6 +26,12 @@ class PlantsController < ApplicationController
         render json: plant, status: :ok
     end
 
+    def destroy
+        plant = find_plant
+        plant.destroy
+        head :no_content
+    end
+
     private
 
     def find_plant
