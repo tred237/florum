@@ -12,10 +12,10 @@ export function UserProvider({ children }) {
             if(r.ok) {
                 r.json().then(user => {
                     setUser(user)
-                    setAuthenticationComplete(!authenticationComplete)
+                    setAuthenticationComplete(true)
                 })
             }
-            else setAuthenticationComplete(!authenticationComplete)
+            else setAuthenticationComplete(true)
         })
     },[])
 

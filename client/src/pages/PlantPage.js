@@ -14,7 +14,9 @@ export default function PlantPage() {
             if(r.ok) r.json().then(data => setPlant(data))
             else r.json().then(err => setErrorMessage(err.error))
         })
-    },[])
+    },[plantId])
+
+    console.log(plant)
 
     return (
         <Container>
