@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Container from "react-bootstrap/esm/Container";
 import { useParams } from "react-router-dom";
+import PlantDetails from "../components/PlantDetails";
 
 export default function PlantPage() {
     const [plant, setPlant] = useState([])
@@ -17,7 +18,7 @@ export default function PlantPage() {
 
     return (
         <Container>
-            <h1>{errorMessage ? errorMessage  : plant.name}</h1>
+            <h1>{errorMessage ? errorMessage  : <PlantDetails plant={plant} />}</h1>
         </Container>
     )
 }
