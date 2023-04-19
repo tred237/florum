@@ -6,10 +6,9 @@ import Col from 'react-bootstrap/Col';
 import { UserContext } from '../context/User';
 import PlantInformation from './PlantInformation';
 import PlantButtons from './PlantButtons';
-import Loading from './Loading';
 
-export default function PlantDetails({ plant }) {
-    const { user, authenticationComplete } = useContext(UserContext)
+export default function PlantDetails({ plant, setPlant }) {
+    const { user } = useContext(UserContext)
 
     return (
         <Container>
@@ -18,7 +17,7 @@ export default function PlantDetails({ plant }) {
                     <Row>
                         <Col>{plant.image}</Col>
                     </Row>
-                    {plant.owner && plant.owner.id === user.id  ? <Row><PlantButtons /></Row> : null}
+                    {plant.owner && plant.owner.id === user.id  ? <Row><PlantButtons plant={plant} setPlant={setPlant} /></Row> : null}
                 </Col>
                 <Col><PlantInformation plant={plant} /></Col>
             </Row>
