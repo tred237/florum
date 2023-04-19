@@ -1,7 +1,6 @@
 import { useContext } from 'react';
-import { Redirect } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import ListGroup from 'react-bootstrap/ListGroup'
+import ListGroup from 'react-bootstrap/ListGroup';
 
 import PlantCard from "../components/PlantCard"
 import { UserContext } from '../context/User';
@@ -11,15 +10,12 @@ export default function HomePage() {
     const { user } = useContext(UserContext);
     const { plants } = useContext(PlantContext);
 
-    if(!user) return <Redirect push to="/login" />
-    else {
-        return(
-            <Container>
-                <h1>{`Welcome ${user.username}!`}</h1>
-                <ListGroup> 
-                    {plants ? plants.map((plant) => <PlantCard key={plant.id} plant={plant} />) : null}
-                </ListGroup>
-            </Container>
-        )
-    }
+    return(
+        <Container>
+            <h1>{`Welcome ${user.username}!`}</h1>
+            <ListGroup> 
+                {plants ? plants.map((plant) => <PlantCard key={plant.id} plant={plant} />) : null}
+            </ListGroup>
+        </Container>
+    )
 }

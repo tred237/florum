@@ -9,32 +9,28 @@ import HomePage from "../pages/HomePage"
 import NavBarLoggedOut from "./NavBarLoggedOut";
 import NavBarLoggedin from "./NavBarLoggedIn";
 import PlantPage from "../pages/PlantPage";
+import Loading from "./Loading";
+import PrivateRoute from "./PrivateRoute";
+import PublicRoute from "./PublicRoute";
 
 export default function App() {
   const { authenticationComplete, user } = useContext(UserContext);
 
-  return (
-      <div className="App">
-        <PlantProvider>
-        {user ? <NavBarLoggedin /> : <NavBarLoggedOut />}
-        <Switch>
-            <Route exact path="/signup">
-              <SignupPage />
-            </Route>
-            <Route exact path="/login">
-              <LoginPage />
-            </Route>
-            <Route exact path="/home">
-              {authenticationComplete ? <HomePage/> : null}
-            </Route>
-            <Route exact path="/plant/:id">
-              {authenticationComplete ? <PlantPage/> : null}
-            </Route>
-            <Route path="/">
-              <Redirect to="/home" />
-            </Route>
-        </Switch>
-        </PlantProvider>
-      </div>
+  if(!authenticationComplete) <Loading />
+  else return (
+    <div className="App">
+      <PlantProvider>
+      {user ? <NavBarLoggedin /> : <NavBarLoggedOut />}
+      <Switch>
+          <PublicRoute exact component={LoginPage} path="/login" />
+          <PublicRoute exact component={SignupPage} path="/signup" />
+          <PrivateRoute exact component={HomePage} path="/home" />
+          <PrivateRoute exact component={PlantPage} path="/plant/:id" />
+          <Route path="/">
+            <Redirect to="/home" />
+          </Route>
+      </Switch>
+      </PlantProvider>
+    </div>
   )
 }
