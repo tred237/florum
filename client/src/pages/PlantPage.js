@@ -16,8 +16,6 @@ export default function PlantPage() {
         })
     },[plantId])
 
-    console.log(plant)
-
     return (
         <Container>
             <h1>{errorMessage ? errorMessage  : <PlantDetails plant={plant} setPlant={setPlant} />}</h1>

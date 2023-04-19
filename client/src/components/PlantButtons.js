@@ -19,7 +19,6 @@ export default function PlantButtons({ plant, setPlant }) {
             method: "DELETE"
         })
         .then(r => {
-            console.log()
             if(r.ok) {
                 const updatedPlants = plants.filter(e => e.id !== plant.id)
                 setPlants(updatedPlants)
