@@ -9,7 +9,7 @@ export default function SignupPage() {
         email: '',
         username: '',
         password: '',
-        passwordConfirmation: ''
+        password_confirmation: ''
     }
 
     const [formData, setFormData] = useState(formDataDefault)

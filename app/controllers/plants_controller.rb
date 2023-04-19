@@ -6,7 +6,7 @@ class PlantsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :plant_record_not_found_repsonse
 
     def index
-        plants = Plant.all
+        plants = Plant.all.order(:name)
         render json: plants, status: :ok
     end
 

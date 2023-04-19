@@ -35,8 +35,8 @@ export default function SignupForm({ formData, signupError, handleSubmit, handle
                 <Form.Label>Password Confirmation</Form.Label>
                 <Form.Control type="password" 
                             placeholder="Enter password confirmation"
-                            name="passwordConfirmation" 
-                            value={formData.passwordConfirmation} 
+                            name="password_confirmation" 
+                            value={formData.password_confirmation} 
                             onChange={handleChange} />
             </Form.Group>
             <ListGroup>
