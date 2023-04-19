@@ -7,7 +7,7 @@ export default function PlantInformation({ plant }) {
             <ListGroup.Item>{`Light: ${plant.light}`}</ListGroup.Item>
             <ListGroup.Item>{`Water: ${plant.water}`}</ListGroup.Item>
             <ListGroup.Item>{`Average Size: ${plant.size}`}</ListGroup.Item>
-            <ListGroup.Item>{`Creator: ${plant.owner.username}`}</ListGroup.Item>
+            <ListGroup.Item>{`Creator: ${plant.owner ? plant.owner.username : null}`}</ListGroup.Item>
         </ListGroup>
     )
 }
