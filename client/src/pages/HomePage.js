@@ -4,11 +4,11 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 import PlantCard from "../components/PlantCard"
 import { UserContext } from '../context/User';
-import { PlantContext } from '../context/Plant';
+import { PlantsContext } from '../context/Plants';
 
 export default function HomePage() {
     const { user } = useContext(UserContext);
-    const { plants } = useContext(PlantContext);
+    const { plants } = useContext(PlantsContext);
 
     return(
         <Container>

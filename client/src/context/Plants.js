@@ -2,9 +2,9 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 
 import { UserContext } from './User';
 
-export const PlantContext = createContext()
+export const PlantsContext = createContext()
 
-export function PlantProvider({ children }) {
+export function PlantsProvider({ children }) {
     const { user } = useContext(UserContext)
     const [plants, setPlants] = useState([])
 
@@ -18,8 +18,8 @@ export function PlantProvider({ children }) {
     }, [user])
 
     return (
-        <PlantContext.Provider value={{ plants, setPlants }}>
+        <PlantsContext.Provider value={{ plants, setPlants }}>
             {children}
-        </PlantContext.Provider>
+        </PlantsContext.Provider>
     )
 }

@@ -6,9 +6,12 @@ import Col from 'react-bootstrap/Col';
 import { UserContext } from '../context/User';
 import PlantInformation from './PlantInformation';
 import PlantButtons from './PlantButtons';
+import PlantForum from './PlantForum';
 
 export default function PlantDetails({ plant, setPlant }) {
     const { user } = useContext(UserContext)
+
+    console.log(plant)
 
     return (
         <Container>
@@ -25,6 +28,7 @@ export default function PlantDetails({ plant, setPlant }) {
             <Row>
                 <Col>{plant.description}</Col>
             </Row>
+            <PlantForum />
         </Container>
     )
 }

@@ -4,10 +4,10 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import EditPlantModal from '../modals/EditPlantModal';
 
-import { PlantContext } from '../context/Plant';
+import { PlantsContext } from '../context/Plants';
 
 export default function PlantButtons({ plant, setPlant }) {
-    const { plants, setPlants } = useContext(PlantContext)
+    const { plants, setPlants } = useContext(PlantsContext)
     const [showModal, setShowModal] = useState(false)
     const history = useHistory()
 

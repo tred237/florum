@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import { UserContext } from '../context/User';
-import { PlantProvider } from "../context/Plant";
+import { PlantsProvider } from "../context/Plants";
 import LoginPage from "../pages/LoginPage"
 import SignupPage from "../pages/SignupPage";
 import HomePage from "../pages/HomePage"
@@ -19,7 +19,7 @@ export default function App() {
   if(!authenticationComplete) <Loading />
   else return (
     <div className="App">
-      <PlantProvider>
+      <PlantsProvider>
       {user ? <NavBarLoggedin /> : <NavBarLoggedOut />}
       <Switch>
           <PublicRoute exact component={LoginPage} path="/login" />
@@ -30,7 +30,7 @@ export default function App() {
             <Redirect to="/home" />
           </Route>
       </Switch>
-      </PlantProvider>
+      </PlantsProvider>
     </div>
   )
 }

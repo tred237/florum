@@ -4,11 +4,11 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 import { UserContext } from '../context/User';
-import { PlantContext } from '../context/Plant';
+import { PlantsContext } from '../context/Plants';
 
 export default function AddPlant({ onCloseModal }) {
     const { user } = useContext(UserContext)
-    const { plants, setPlants } = useContext(PlantContext)
+    const { plants, setPlants } = useContext(PlantsContext)
 
     const formDataDefault = {
         name: '',
