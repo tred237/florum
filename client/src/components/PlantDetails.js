@@ -11,8 +11,6 @@ import PlantForum from './PlantForum';
 export default function PlantDetails({ plant, setPlant }) {
     const { user } = useContext(UserContext)
 
-    console.log(plant)
-
     return (
         <Container>
             <Row>
@@ -28,7 +26,7 @@ export default function PlantDetails({ plant, setPlant }) {
             <Row>
                 <Col>{plant.description}</Col>
             </Row>
-            <PlantForum />
+            {plant.forum_entries ? <PlantForum forumEntries={plant.forum_entries} setPlant={setPlant} /> : null}
         </Container>
     )
 }
