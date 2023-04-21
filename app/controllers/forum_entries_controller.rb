@@ -1,8 +1,8 @@
 class ForumEntriesController < ApplicationController
+    before_action :authorize
     rescue_from ActiveRecord::RecordInvalid, with: :entry_record_invalid_response
 
     def create
-        # byebug
         entry = ForumEntry.create!(entry_params)
         render json: entry, status: :created
     end
