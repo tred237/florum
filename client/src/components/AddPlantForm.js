@@ -110,7 +110,8 @@ export default function AddPlant({ onCloseModal }) {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Description</Form.Label>
-                    <Form.Control placeholder="Enter description" 
+                    <Form.Control as="textarea"
+                                placeholder="Enter description" 
                                 name="description" 
                                 value={formData.description}
                                 onChange={handleChange} />
