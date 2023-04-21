@@ -1,6 +1,5 @@
 class PlantsController < ApplicationController
     before_action :authorize
-    skip_before_action :authorize, only: [:update]
 
     rescue_from ActiveRecord::RecordInvalid, with: :plant_record_invalid_response
     rescue_from ActiveRecord::RecordNotFound, with: :plant_record_not_found_repsonse
@@ -22,9 +21,13 @@ class PlantsController < ApplicationController
 
     def update
         plant = find_plant
-        plant.update!(plant_update_params)
-        render json: plant, status: :ok
-    end
+        if (plant.owner_id == session[:user_id])
+            plant.update!(plant_update_params)
+            render json: plant, status: :ok
+        else 
+            render json: {error: "You are not authorized to edit this plant's information"}, status: :unauthorized
+        end
+    end 
 
     def destroy
         plant = find_plant
