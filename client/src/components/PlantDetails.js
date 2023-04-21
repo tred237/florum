@@ -11,6 +11,12 @@ import PlantForum from './PlantForum';
 export default function PlantDetails({ plant, setPlant }) {
     const { user } = useContext(UserContext)
 
+    const handleForumEntrySubmit = (entry) => {
+        const updatedPlant = {...plant}
+        updatedPlant.forum_entries = [entry, ...updatedPlant.forum_entries]
+        setPlant(updatedPlant)
+    }
+
     return (
         <Container>
             <Row>
@@ -18,7 +24,7 @@ export default function PlantDetails({ plant, setPlant }) {
                     <Row>
                         <Col>{plant.image}</Col>
                     </Row>
-                    {plant.owner && plant.owner.id === user.id  ? <Row><PlantButtons plant={plant} setPlant={setPlant} /></Row> : null}
+                    {plant.owner && plant.owner.id === user.id ? <Row><PlantButtons plant={plant} setPlant={setPlant} /></Row> : null}
                 </Col>
                 <Col><PlantInformation plant={plant} /></Col>
             </Row>
@@ -26,7 +32,7 @@ export default function PlantDetails({ plant, setPlant }) {
             <Row>
                 <Col>{plant.description}</Col>
             </Row>
-            {plant.forum_entries ? <PlantForum forumEntries={plant.forum_entries} setPlant={setPlant} /> : null}
+            {plant.forum_entries ? <PlantForum plant={plant} onForumEntrySubmit={handleForumEntrySubmit} />  : null}
         </Container>
     )
 }

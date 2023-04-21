@@ -1,14 +1,23 @@
+import { useState } from "react";
 import Button from "react-bootstrap/Button"
 import ListGroup from 'react-bootstrap/ListGroup';
-import PlantForumEntry from "./PlantForumEntry";
 
-export default function PlantForum({ forumEntries, setPlant }) {
+import PlantForumEntry from "./PlantForumEntry";
+import AddForumEntryModal from "../modals/AddForumEntryModal";
+
+export default function PlantForum({ plant, onForumEntrySubmit }) {
+    const [showModal, setShowModal] = useState(false)
+
+    const handleShowModal = () => setShowModal(true)
+    const handleCloseModal = () => setShowModal(false)
+
     return (
         <>
-            <Button>Comment</Button>
+            <Button onClick={handleShowModal}>Comment</Button>
             <ListGroup>
-                {forumEntries.map(e => <PlantForumEntry key={e.id} entryInfo={e} />)}
+                {plant.forum_entries.map(e => <PlantForumEntry key={e.id} entryInfo={e} />)}
             </ListGroup>
+            <AddForumEntryModal plantId={plant.id} showModal={showModal} onCloseModal={handleCloseModal} onForumEntrySubmit={onForumEntrySubmit} />
         </>
     )
 }
