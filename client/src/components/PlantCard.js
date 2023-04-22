@@ -21,7 +21,6 @@ export default function PlantCard({ plant }){
                 <Card.Img variant="top" src={plant.image} alt={plant.name} />
                     <Card.Body>
                         <Card.Text>
-                            {hover ? "yay" : null}
                             {plant.name}
                         </Card.Text>
                     </Card.Body>
