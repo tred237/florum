@@ -7,6 +7,7 @@ import { UserContext } from '../context/User';
 import PlantInformation from './PlantInformation';
 import PlantButtons from './PlantButtons';
 import PlantForum from './PlantForum';
+import Loading from "./Loading";
 
 export default function PlantDetails({ plant, setPlant }) {
     const { user } = useContext(UserContext)
@@ -17,7 +18,9 @@ export default function PlantDetails({ plant, setPlant }) {
         setPlant(updatedPlant)
     }
 
-    return (
+    
+    if(!plant.name) <Loading />
+    else return (
         <Container>
             <Row>
                 <Col>
