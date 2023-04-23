@@ -1,11 +1,17 @@
-import React from 'react';
+// import React from 'react';
+import { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import ResponseError from "../components/ResponseError"
 
 export default function SignupForm({ formData, signupError, handleSubmit, handleChange }) {
+    const [showPassword, setShowPassword] = useState(false)
+
+    const handleTogglePassword = () => setShowPassword(!showPassword)
+
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group>
@@ -25,15 +31,18 @@ export default function SignupForm({ formData, signupError, handleSubmit, handle
             </Form.Group>
             <Form.Group>
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password"
-                            placeholder="Enter password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange} />
+                <InputGroup>
+                    <Form.Control type={showPassword ? "text" : "password" }
+                                placeholder="Enter password"
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange} />
+                    <Button variant="outline-success" onMouseUp={handleTogglePassword} onMouseDown={handleTogglePassword}>Show Password</Button>
+                </InputGroup>
             </Form.Group>
             <Form.Group>
                 <Form.Label>Password Confirmation</Form.Label>
-                <Form.Control type="password" 
+                <Form.Control type={showPassword ? "text" : "password" }
                             placeholder="Enter password confirmation"
                             name="password_confirmation" 
                             value={formData.password_confirmation} 

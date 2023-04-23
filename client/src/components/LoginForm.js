@@ -1,10 +1,15 @@
-import React from "react";
+import { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 export default function LoginForm({ formData, loginError, handleSubmit, handleChange }) {
+    const [showPassword, setShowPassword] = useState(false)
+
+    const handleTogglePassword = () => setShowPassword(!showPassword)
+
     return (
-        <React.Fragment>
+        <>
             <Form onSubmit={handleSubmit}>
                 <Form.Group>
                     <Form.Label>Email Address or Username</Form.Label>
@@ -15,15 +20,18 @@ export default function LoginForm({ formData, loginError, handleSubmit, handleCh
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" 
-                                placeholder="Enter password" 
-                                name="password" 
-                                value={formData.password}
-                                onChange={handleChange}/>
+                    <InputGroup>
+                        <Form.Control type={showPassword ? "text" : "password" }
+                                    placeholder="Enter password" 
+                                    name="password" 
+                                    value={formData.password}
+                                    onChange={handleChange}/>
+                        <Button variant="outline-success" onMouseUp={handleTogglePassword} onMouseDown={handleTogglePassword} >Show Password</Button>
+                    </InputGroup>
                 </Form.Group>
                 {loginError ? <p>{loginError}</p> : null}
                 <Button variant="success" type="submit">Log in</Button>
             </Form>
-        </React.Fragment>
+        </>
     )
 }
