@@ -6,7 +6,7 @@ import PlantCard from "../components/PlantCard"
 import { PlantsContext } from '../context/Plants';
 import Loading from '../components/Loading';
 
-export default function MyPlants() {
+export default function MyPlants({ searchedPlants }) {
     const { plants } = useContext(PlantsContext);
     const [myPlants, setMyPlants] = useState([])
 
@@ -22,7 +22,9 @@ export default function MyPlants() {
         <Container>
             <h1>My Plants</h1>
             <ListGroup> 
-                {myPlants ? myPlants.map((plant) => <PlantCard key={plant.id} plant={plant} />) : null}
+                {myPlants ? myPlants.map((plant) => {
+                    if(!searchedPlants || plant.name.toLowerCase().startsWith(searchedPlants.toLowerCase())) return <PlantCard key={plant.id} plant={plant} />
+                }) : null}
             </ListGroup>
         </Container>
     )

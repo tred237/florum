@@ -6,7 +6,7 @@ import PlantCard from "../components/PlantCard"
 import { UserContext } from '../context/User';
 import { PlantsContext } from '../context/Plants';
 
-export default function HomePage() {
+export default function HomePage({ searchedPlants }) {
     const { user } = useContext(UserContext);
     const { plants } = useContext(PlantsContext);
 
@@ -14,7 +14,9 @@ export default function HomePage() {
         <Container>
             <h1>{`Welcome ${user.username}!`}</h1>
             <ListGroup> 
-                {plants ? plants.map((plant) => <PlantCard key={plant.id} plant={plant} />) : null}
+                {plants ? plants.map((plant) => {
+                    if(!searchedPlants || plant.name.toLowerCase().startsWith(searchedPlants.toLowerCase())) return <PlantCard key={plant.id} plant={plant} />
+                }) : null}
             </ListGroup>
         </Container>
     )
