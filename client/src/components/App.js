@@ -21,17 +21,17 @@ export default function App() {
   else return (
     <div className="App">
       <PlantsProvider>
-      {user ? <NavBarLoggedin /> : <NavBarLoggedOut />}
-      <Switch>
-          <PublicRoute exact component={LoginPage} path="/login" />
-          <PublicRoute exact component={SignupPage} path="/signup" />
-          <PrivateRoute exact component={HomePage} path="/home" />
-          <PrivateRoute exact component={PlantPage} path="/plants/:id" />
-          <PrivateRoute exact component={MyPlants} path="/my-plants" />
-          <Route path="/">
-            <Redirect to="/home" />
-          </Route>
-      </Switch>
+        {user ? <NavBarLoggedin /> : <NavBarLoggedOut />}
+        <Switch>
+            <PublicRoute exact component={LoginPage} path="/login" />
+            <PublicRoute exact component={SignupPage} path="/signup" />
+            <PrivateRoute exact component={HomePage} path="/home" />
+            <PrivateRoute exact component={PlantPage} path="/plants/:id" />
+            <PrivateRoute exact component={MyPlants} path="/my-plants" />
+            <Route path="/">
+              <Redirect to="/home" />
+            </Route>
+        </Switch>
       </PlantsProvider>
     </div>
   )
