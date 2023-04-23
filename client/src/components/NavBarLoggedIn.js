@@ -37,6 +37,7 @@ export default function NavBarLoggedIn() {
                     <Navbar.Brand>Florum</Navbar.Brand>
                     <Nav>
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                        <Nav.Link as={Link} to="/my-plants">My Plants</Nav.Link>
                         <Nav.Link onClick={handleShowModal}>Add Plant</Nav.Link>
                         <Nav.Link onClick={handleLogoutClick}>Logout</Nav.Link>
                     </Nav>

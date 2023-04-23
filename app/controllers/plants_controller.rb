@@ -1,5 +1,6 @@
 class PlantsController < ApplicationController
     before_action :authorize
+    # skip_before_action :authorize, only: [:single_plant]
 
     rescue_from ActiveRecord::RecordInvalid, with: :plant_record_invalid_response
     rescue_from ActiveRecord::RecordNotFound, with: :plant_record_not_found_repsonse
@@ -34,6 +35,11 @@ class PlantsController < ApplicationController
         plant.forum_entries.destroy_all
         plant.destroy
         head :no_content
+    end
+
+    def my_plants
+        plants = Plant.where(owner_id: session[:user_id]).order(:name)
+        render json: plants, status: :ok    
     end
 
     private

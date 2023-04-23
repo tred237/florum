@@ -12,6 +12,7 @@ import PlantPage from "../pages/PlantPage";
 import Loading from "./Loading";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
+import MyPlants from "../pages/MyPlantsPage";
 
 export default function App() {
   const { authenticationComplete, user } = useContext(UserContext);
@@ -25,7 +26,8 @@ export default function App() {
           <PublicRoute exact component={LoginPage} path="/login" />
           <PublicRoute exact component={SignupPage} path="/signup" />
           <PrivateRoute exact component={HomePage} path="/home" />
-          <PrivateRoute exact component={PlantPage} path="/plant/:id" />
+          <PrivateRoute exact component={PlantPage} path="/plants/:id" />
+          <PrivateRoute exact component={MyPlants} path="/my-plants" />
           <Route path="/">
             <Redirect to="/home" />
           </Route>

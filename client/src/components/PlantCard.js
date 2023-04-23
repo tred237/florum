@@ -17,7 +17,7 @@ export default function PlantCard({ plant }){
             <Card style={cardStyle} 
                   onMouseOver={() => setHover(true)}
                   onMouseOut={() => setHover(false)} 
-                  onClick={() => history.push(`plant/${plant.id}`)}>
+                  onClick={() => history.push(`plants/${plant.id}`)}>
                 <Card.Img variant="top" src={plant.image} alt={plant.name} />
                     <Card.Body>
                         <Card.Text>
