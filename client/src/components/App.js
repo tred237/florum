@@ -4,7 +4,6 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { UserContext } from '../context/User';
 import { PlantsProvider } from "../context/Plants";
 import LoginPage from "../pages/LoginPage"
-import SignupPage from "../pages/SignupPage";
 import HomePage from "../pages/HomePage"
 import NavBarLoggedOut from "./NavBarLoggedOut";
 import NavBarLoggedin from "./NavBarLoggedIn";
@@ -16,12 +15,9 @@ import MyPlants from "../pages/MyPlantsPage";
 
 export default function App() {
   const { authenticationComplete, user } = useContext(UserContext);
-
   const [searchedPlants, setSearchedPlants] = useState('')
 
   const handleSearchChange = (e) => setSearchedPlants(e.target.value)
-
-  // console.log(searchedPlants)
 
   if(!authenticationComplete) <Loading />
   else return (
@@ -30,7 +26,6 @@ export default function App() {
         {user ? <NavBarLoggedin searchedPlants={searchedPlants} onSearchChange={handleSearchChange} /> : <NavBarLoggedOut />}
         <Switch>
             <PublicRoute exact component={LoginPage} path="/login" />
-            <PublicRoute exact component={SignupPage} path="/signup" />
             <PrivateRoute exact component={HomePage} path="/home" componentProps={{searchedPlants: searchedPlants}} />
             <PrivateRoute exact component={PlantPage} path="/plants/:id" />
             <PrivateRoute exact component={MyPlants} path="/my-plants" componentProps={{searchedPlants: searchedPlants}} />
