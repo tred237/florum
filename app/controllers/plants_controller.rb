@@ -1,6 +1,5 @@
 class PlantsController < ApplicationController
     before_action :authorize
-    # skip_before_action :authorize, only: [:single_plant]
 
     rescue_from ActiveRecord::RecordInvalid, with: :plant_record_invalid_response
     rescue_from ActiveRecord::RecordNotFound, with: :plant_record_not_found_repsonse
@@ -49,11 +48,11 @@ class PlantsController < ApplicationController
     end
 
     def plant_params
-        params.permit(:name, :image, :light, :water, :size, :description, :safe_for_pets, :owner_id)
+        params.permit(:name, :image, :light, :water, :size, :description, :safe_for_pets, :edible, :blooms, :biome, :owner_id)
     end
 
     def plant_update_params
-        params.permit(:name, :image, :light, :water, :size, :description, :safe_for_pets)
+        params.permit(:name, :image, :light, :water, :size, :description, :safe_for_pets, :edible, :blooms, :biome)
     end
 
     def plant_record_invalid_response(invalid)
