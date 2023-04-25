@@ -9,4 +9,7 @@ class Plant < ApplicationRecord
     validates :water, presence: true
     validates :size, presence: true
     validates :safe_for_pets, inclusion: [true, false]
+    validates :edible, inclusion: [true, false]
+    validates :blooms, inclusion: [true, false]
+    validates :climate, inclusion: ['Aquatic', 'Continental', 'Dry', 'Polar', 'Temperate', 'Tropical']
 end

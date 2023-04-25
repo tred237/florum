@@ -1,5 +1,5 @@
 class PlantSerializer < ActiveModel::Serializer
-  attributes :id, :name, :image, :light, :water, :size, :description, :safe_for_pets, :edible, :blooms, :biome
+  attributes :id, :name, :image, :light, :water, :size, :description, :safe_for_pets, :edible, :blooms, :climate
 
   has_many :forum_entries do
     object.forum_entries.order(created_at: :desc)

@@ -48,11 +48,11 @@ class PlantsController < ApplicationController
     end
 
     def plant_params
-        params.permit(:name, :image, :light, :water, :size, :description, :safe_for_pets, :edible, :blooms, :biome, :owner_id)
+        params.permit(:name, :image, :light, :water, :size, :description, :safe_for_pets, :edible, :blooms, :climate, :owner_id)
     end
 
     def plant_update_params
-        params.permit(:name, :image, :light, :water, :size, :description, :safe_for_pets, :edible, :blooms, :biome)
+        params.permit(:name, :image, :light, :water, :size, :description, :safe_for_pets, :edible, :blooms, :climate)
     end
 
     def plant_record_invalid_response(invalid)

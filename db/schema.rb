@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_004631) do
     t.integer "owner_id"
     t.boolean "edible"
     t.boolean "blooms"
-    t.string "biome"
+    t.string "climate"
   end
 
   create_table "users", force: :cascade do |t|
