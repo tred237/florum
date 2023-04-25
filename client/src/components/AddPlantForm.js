@@ -72,7 +72,7 @@ export default function AddPlant({ onCloseModal }) {
                                 as="select"
                                 type="select"
                                 name="climate"
-                                value={formData.biome}
+                                value={formData.climate}
                                 onChange={handleChange}>
                         <option value="">Select option</option>
                         <option value="Aquatic">Aquatic</option>
@@ -100,7 +100,7 @@ export default function AddPlant({ onCloseModal }) {
                                 onChange={handleChange} />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Average Height *</Form.Label>
+                    <Form.Label>Typical Size *</Form.Label>
                     <Form.Control required 
                                 placeholder="Enter average height" 
                                 name="size" 
@@ -121,7 +121,7 @@ export default function AddPlant({ onCloseModal }) {
                     </ Form.Control>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Safe For Pets *</Form.Label>
+                    <Form.Label>Safe For Pets? *</Form.Label>
                     <Form.Control required
                                 as="select"
                                 type="select"
@@ -134,7 +134,7 @@ export default function AddPlant({ onCloseModal }) {
                     </ Form.Control>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Is Edible *</Form.Label>
+                    <Form.Label>Is Edible? *</Form.Label>
                     <Form.Control required
                                 as="select"
                                 type="select"
