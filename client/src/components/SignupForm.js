@@ -14,34 +14,43 @@ export default function SignupForm({ formData, signupError, handleSubmit, handle
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group>
-                <Form.Label>Email Address</Form.Label>
-                <Form.Control type='email' 
+                <Form.Label>Email Address *</Form.Label>
+                <Form.Control required
+                            type='email' 
                             placeholder="Enter email address"
                             name="email"
                             value={formData.email}
                             onChange={handleChange} />
             </Form.Group>
             <Form.Group>
-                <Form.Label>Username</Form.Label>
-                <Form.Control placeholder="Enter username"
+                <Form.Label>Username *</Form.Label>
+                <Form.Control required
+                            placeholder="Enter username"
                             name="username"
                             value={formData.username}
                             onChange={handleChange} />
             </Form.Group>
             <Form.Group>
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Password *</Form.Label>
                 <InputGroup>
-                    <Form.Control type={showPassword ? "text" : "password" }
+                    <Form.Control required
+                                type={showPassword ? "text" : "password" }
                                 placeholder="Enter password"
                                 name="password"
                                 value={formData.password}
                                 onChange={handleChange} />
                     <Button variant="outline-success" onMouseUp={handleTogglePassword} onMouseDown={handleTogglePassword}>Show Password</Button>
                 </InputGroup>
+                <Form.Text className="text-muted">
+                    Passwords must contain between 6 and 20 characters<br/>
+                    Passwords must contain at least one uppercase letter, one lowercase letter, and one number<br/>
+                    Passwords need contain at least one of the following symbols: !@#$%^&*()_+
+                </Form.Text>
             </Form.Group>
             <Form.Group>
-                <Form.Label>Password Confirmation</Form.Label>
-                <Form.Control type={showPassword ? "text" : "password" }
+                <Form.Label>Password Confirmation *</Form.Label>
+                <Form.Control required
+                            type={showPassword ? "text" : "password" }
                             placeholder="Enter password confirmation"
                             name="password_confirmation" 
                             value={formData.password_confirmation} 
