@@ -13,25 +13,20 @@ export default function AddPlant({ onCloseModal }) {
     const formDataDefault = {
         name: '',
         image: '',
+        climate: '',
         light: '',
         water: '',
         size: '',
-        description: '',
+        blooms: '',
         safe_for_pets: '',
+        edible: '',
+        description: '',
         owner_id: user.id
     }
 
     const [formData, setFormData] = useState(formDataDefault)
 
-    const handleChange = e => {
-        let value
-        if(e.target.name === 'safe_for_pets') {
-            e.target.value === 'true' ? value = true : value = false
-        } else {
-            value = e.target.value
-        }
-        setFormData({...formData, [e.target.name]:value})
-    }
+    const handleChange = e => setFormData({...formData, [e.target.name]:e.target.value})
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -72,6 +67,23 @@ export default function AddPlant({ onCloseModal }) {
                                 onChange={handleChange} />
                 </Form.Group>
                 <Form.Group>
+                    <Form.Label>Climate *</Form.Label>
+                    <Form.Control required
+                                as="select"
+                                type="select"
+                                name="climate"
+                                value={formData.biome}
+                                onChange={handleChange}>
+                        <option value="">Select option</option>
+                        <option value="Aquatic">Aquatic</option>
+                        <option value="Continental">Continental</option>
+                        <option value="Dry">Dry</option>
+                        <option value="Polar">Polar</option>
+                        <option value="Temperate">Temperate</option>
+                        <option value="Tropical">Tropical</option>
+                    </ Form.Control>
+                </Form.Group>
+                <Form.Group>
                     <Form.Label>Amount of Light *</Form.Label>
                     <Form.Control required 
                                 placeholder="Enter amount of light" 
@@ -96,12 +108,38 @@ export default function AddPlant({ onCloseModal }) {
                                 onChange={handleChange} />
                 </Form.Group>
                 <Form.Group>
+                    <Form.Label>Has Flowers? *</Form.Label>
+                    <Form.Control required
+                                as="select"
+                                type="select"
+                                name="blooms"
+                                value={formData.blooms}
+                                onChange={handleChange}>
+                        <option value="">Select option</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </ Form.Control>
+                </Form.Group>
+                <Form.Group>
                     <Form.Label>Safe For Pets *</Form.Label>
                     <Form.Control required
                                 as="select"
                                 type="select"
                                 name="safe_for_pets"
                                 value={formData.safe_for_pets}
+                                onChange={handleChange}>
+                        <option value="">Select option</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </ Form.Control>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Is Edible *</Form.Label>
+                    <Form.Control required
+                                as="select"
+                                type="select"
+                                name="edible"
+                                value={formData.edible}
                                 onChange={handleChange}>
                         <option value="">Select option</option>
                         <option value="true">Yes</option>
