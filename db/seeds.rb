@@ -1,6 +1,5 @@
 require 'bcrypt'
-# User.create!(username: "Jane", password_digest: BCrypt::Password.create('testerefrfr'))
-# User.create!(username: "Mike", password_digest: BCrypt::Password.create('tester'))
+User.create!(email: 'trevor@email.com', username: "trevor", password: 'T3ster!', password_confirmation: 'T3ster!')
 
 # Plant.create!(
 #     name: "Rose",

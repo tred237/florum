@@ -8,17 +8,15 @@ import Form from 'react-bootstrap/Form';
 
 import { UserContext } from '../context/User';
 import AddPlantModal from '../modals/AddPlantModal';
+import florumlogo from "../img/florumlogo.png";
 
 export default function NavBarLoggedIn({ searchedPlants, onSearchChange }) {
     const { setUser } = useContext(UserContext)
     const [showModal, setShowModal] = useState(false)
-    // const [formData, setFormData] = useState('')
     const history = useHistory()
 
     const handleShowModal = () => setShowModal(true)
     const handleCloseModal = () => setShowModal(false)
-
-    // const handleChange = (e) => setFormData(e.target.value)
 
     const handleLogoutClick = () => {
         fetch('/logout', {
@@ -39,7 +37,10 @@ export default function NavBarLoggedIn({ searchedPlants, onSearchChange }) {
         <React.Fragment>
             <Navbar bg="dark" variant="dark">
                 <Container>
-                    <Navbar.Brand as={Link} to="/home">Florum</Navbar.Brand>
+                    <Navbar.Brand as={Link} to="/home">
+                        <img alt="" src={florumlogo} width="30" height="30" className="d-inline-block align-top"/>{' '}
+                        Florum
+                    </Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/my-plants">My Plants</Nav.Link>
                         <Nav.Link onClick={handleShowModal}>Add Plant</Nav.Link>
