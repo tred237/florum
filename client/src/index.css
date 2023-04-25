@@ -1,0 +1,23 @@
+.login-signup-container {
+    margin-top: 5%;
+}
+
+.login-signup-form {
+    padding-left: 27%;
+    padding-right: 27%;
+}
+
+.login-signup-input {
+    padding-bottom: 2%;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin: 0%
+}
+
+.login-signup-btn {
+    margin-top: 2%;
+}
+

@@ -45,7 +45,7 @@ export default function LoginPage() {
     }
 
     return (
-        <Container>
+        <Container className='login-signup-container'>
             <LoginForm formData={formData}
                     loginError={loginError}
                     handleSubmit={handleSubmit}

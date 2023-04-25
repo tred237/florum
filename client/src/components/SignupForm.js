@@ -12,8 +12,8 @@ export default function SignupForm({ formData, signupError, handleSubmit, handle
     const handleTogglePassword = () => setShowPassword(!showPassword)
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Form.Group>
+        <Form className="login-signup-form" onSubmit={handleSubmit}>
+            <Form.Group className="login-signup-input">
                 <Form.Label>Email Address *</Form.Label>
                 <Form.Control required
                             type='email' 
@@ -22,7 +22,7 @@ export default function SignupForm({ formData, signupError, handleSubmit, handle
                             value={formData.email}
                             onChange={handleChange} />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="login-signup-input">
                 <Form.Label>Username *</Form.Label>
                 <Form.Control required
                             placeholder="Enter username"
@@ -30,7 +30,7 @@ export default function SignupForm({ formData, signupError, handleSubmit, handle
                             value={formData.username}
                             onChange={handleChange} />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="login-signup-input">
                 <Form.Label>Password *</Form.Label>
                 <InputGroup>
                     <Form.Control required
@@ -47,7 +47,7 @@ export default function SignupForm({ formData, signupError, handleSubmit, handle
                     Passwords must contain at least one of the following symbols: !@#$%^&*()_+
                 </Form.Text>
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="login-signup-input">
                 <Form.Label>Password Confirmation *</Form.Label>
                 <Form.Control required
                             type={showPassword ? "text" : "password" }
@@ -56,10 +56,10 @@ export default function SignupForm({ formData, signupError, handleSubmit, handle
                             value={formData.password_confirmation} 
                             onChange={handleChange} />
             </Form.Group>
-            <ListGroup>
-                {signupError ? signupError.map((e, index) => <ResponseError key={index} responseItem={e} />) : null}
-            </ListGroup>
-            <Button variant="success" type="submit">Create Account</Button>
+            {signupError ? signupError.map((e, index) => <ResponseError key={index} responseItem={e} />) : null}
+            <Button className="signup-btn" variant="success" type="submit">Create Account</Button>
         </Form>
     )
+
+
 }

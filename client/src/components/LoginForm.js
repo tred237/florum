@@ -10,15 +10,15 @@ export default function LoginForm({ formData, loginError, handleSubmit, handleCh
 
     return (
         <>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group>
+            <Form className='login-signup-form' onSubmit={handleSubmit}>
+                <Form.Group className="login-input">
                     <Form.Label>Email Address or Username</Form.Label>
                     <Form.Control placeholder="Enter email address or username" 
                                 name="email_or_username" 
                                 value={formData.email_or_username}
                                 onChange={handleChange} />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="login-signup-input">
                     <Form.Label>Password</Form.Label>
                     <InputGroup>
                         <Form.Control type={showPassword ? "text" : "password" }
@@ -29,8 +29,8 @@ export default function LoginForm({ formData, loginError, handleSubmit, handleCh
                         <Button variant="outline-success" onMouseUp={handleTogglePassword} onMouseDown={handleTogglePassword} >Show Password</Button>
                     </InputGroup>
                 </Form.Group>
-                {loginError ? <p>{loginError}</p> : null}
-                <Button variant="success" type="submit">Log in</Button>
+                {loginError ? <p class="error-message">{loginError}</p> : null}
+                <Button className="login-signup-btn" variant="success" type="submit">Log in</Button>
             </Form>
         </>
     )

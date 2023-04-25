@@ -34,14 +34,15 @@ export default function SignupPage() {
         })
         .then(r => {
             if(r.ok){
-                setFormData(formDataDefault)
-                history.push('/login')
+                console.log(r.ok)
+                // setFormData(formDataDefault)
+                // history.push('/login')
             } else r.json().then(err => setSignupError(err.errors))
         })
     }
 
     return (
-        <Container>
+        <Container className="login-signup-container">
             <SignupForm formData={formData} 
                         signupError={signupError} 
                         handleSubmit={handleSubmit} 
