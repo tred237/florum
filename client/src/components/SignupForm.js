@@ -44,7 +44,7 @@ export default function SignupForm({ formData, signupError, handleSubmit, handle
                 <Form.Text className="text-muted">
                     Passwords must contain between 6 and 20 characters<br/>
                     Passwords must contain at least one uppercase letter, one lowercase letter, and one number<br/>
-                    Passwords need contain at least one of the following symbols: !@#$%^&*()_+
+                    Passwords must contain at least one of the following symbols: !@#$%^&*()_+
                 </Form.Text>
             </Form.Group>
             <Form.Group>
