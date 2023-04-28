@@ -23,13 +23,21 @@ export default function CarouselPlants() {
             <Container>
                 <h2>{header}</h2>
                 <Carousel>
-                    {plants ? plants.map(plant => {
+                    {plants ? plants.filter(plant => categoryType(header, plant)).map(plant => {
+                            return (
+                                <Carousel.Item interval={3000} key={plant.id} onClick={() => history.push(`plants/${plant.id}`)}>
+                                    <CarouselPlant plant={plant} />
+                                </Carousel.Item>
+                            )
+                        }): null
+                    }
+                    {/* {plants ? plants.map(plant => {
                         if(categoryType(header, plant)) return (
                             <Carousel.Item interval={3000} key={plant.id} onClick={() => history.push(`plants/${plant.id}`)}>
                                 <CarouselPlant plant={plant} />
                             </Carousel.Item>
-                        )
-                    }) : null}
+                        ) 
+                    }) : null} */}
                 </Carousel>
             </Container>
         )

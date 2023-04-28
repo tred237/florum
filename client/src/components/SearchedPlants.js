@@ -14,9 +14,10 @@ export default function HomePage({ searchedPlants }) {
         <Container>
             <h1>{`Welcome ${user.username}!`}</h1>
             <ListGroup>
-                {plants ? plants.map((plant) => {
+            {plants ? plants.filter(plant => !searchedPlants || plant.name.toLowerCase().startsWith(searchedPlants.toLowerCase())).map((plant) => <SearchedPlantCard key={plant.id} plant={plant} />) : null}
+                {/* {plants ? plants.map((plant) => {
                     if(!searchedPlants || plant.name.toLowerCase().startsWith(searchedPlants.toLowerCase())) return <SearchedPlantCard key={plant.id} plant={plant} />
-                }) : null}
+                }) : null} */}
             </ListGroup>
         </Container>
     )
