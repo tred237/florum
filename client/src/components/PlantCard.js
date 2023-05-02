@@ -3,22 +3,19 @@ import { useHistory } from 'react-router-dom';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 
+import florumlogo from "../img/florumlogo.png";
+
 export default function PlantCard({ plant }){
     const [hover, setHover] = useState(false)
     const history = useHistory()
 
-    const cardStyle = {
-        background: "green",
-        opacity: hover ? 0.8 : 1
-    }
-
     return(
         <ListGroup.Item>
-            <Card style={cardStyle} 
+            <Card style={{opacity: hover ? 0.8 : 1}} 
                   onMouseOver={() => setHover(true)}
                   onMouseOut={() => setHover(false)} 
                   onClick={() => history.push(`plants/${plant.id}`)}>
-                <Card.Img variant="top" src={plant.image} alt={plant.name} />
+                <Card.Img className="d-block w-100" variant="top" src={florumlogo} alt={plant.name} />
                     <Card.Body>
                         <Card.Text>
                             {plant.name}

@@ -5,13 +5,14 @@ import { UserContext } from '../context/User';
 import { PlantsProvider } from "../context/Plants";
 import LoginPage from "../pages/LoginPage"
 import HomePage from "../pages/HomePage"
+import PlantPage from "../pages/PlantPage";
+import MyPlants from "../pages/MyPlantsPage";
+import ClimatePage from "../pages/ClimatePage";
 import NavBarLoggedOut from "./NavBarLoggedOut";
 import NavBarLoggedin from "./NavBarLoggedIn";
-import PlantPage from "../pages/PlantPage";
 import Loading from "./Loading";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
-import MyPlants from "../pages/MyPlantsPage";
 
 export default function App() {
   const { authenticationComplete, user } = useContext(UserContext);
@@ -29,6 +30,12 @@ export default function App() {
             <PrivateRoute exact component={HomePage} path="/home" componentProps={{searchedPlants: searchedPlants}} />
             <PrivateRoute exact component={PlantPage} path="/plants/:id" />
             <PrivateRoute exact component={MyPlants} path="/my-plants" componentProps={{searchedPlants: searchedPlants}} />
+            <PrivateRoute exact component={ClimatePage} path="/climates/aquatic" componentProps={{searchedPlants: searchedPlants, climateType: 'Aquatic'}} />
+            <PrivateRoute exact component={ClimatePage} path="/climates/dry" componentProps={{searchedPlants: searchedPlants, climateType: 'Dry'}} />
+            <PrivateRoute exact component={ClimatePage} path="/climates/continental" componentProps={{searchedPlants: searchedPlants, climateType: 'Continental'}} />
+            <PrivateRoute exact component={ClimatePage} path="/climates/polar" componentProps={{searchedPlants: searchedPlants, climateType: 'Polar'}} />
+            <PrivateRoute exact component={ClimatePage} path="/climates/temperate" componentProps={{searchedPlants: searchedPlants, climateType: 'Temperate'}} />
+            <PrivateRoute exact component={ClimatePage} path="/climates/tropical" componentProps={{searchedPlants: searchedPlants, climateType: 'Tropical'}} />
             <Route path="/">
               <Redirect to="/home" />
             </Route>
