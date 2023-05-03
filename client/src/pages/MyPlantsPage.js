@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
-import ListGroup from 'react-bootstrap/ListGroup';
+import Row from 'react-bootstrap/esm/Row';
+import Col from 'react-bootstrap/Col'
 
 import PlantCard from "../components/PlantCard"
 import { PlantsContext } from '../context/Plants';
@@ -21,11 +22,9 @@ export default function MyPlants({ searchedPlants }) {
     else return(
         <Container>
             <h1>My Plants</h1>
-            <ListGroup> 
-                {myPlants ? myPlants.map((plant) => {
-                    if(!searchedPlants || plant.name.toLowerCase().startsWith(searchedPlants.toLowerCase())) return <PlantCard key={plant.id} plant={plant} />
-                }) : null}
-            </ListGroup>
+            <Row md={4}>
+                {myPlants ? myPlants.filter(plant => !searchedPlants || plant.name.toLowerCase().startsWith(searchedPlants.toLowerCase())).map((plant) => <Col><PlantCard key={plant.id} plant={plant} /></Col>) : null}
+            </Row>
         </Container>
     )
 }

@@ -1,5 +1,5 @@
 import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image'
+import Image from 'react-bootstrap/Image';
 
 import PlantInformation from './PlantInformation';
 import PlantForum from './PlantForum';
