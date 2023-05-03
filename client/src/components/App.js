@@ -39,6 +39,8 @@ export default function App() {
             <PrivateRoute exact component={SeeAllPage} path="/categories-edible" componentProps={{searchedPlants: searchedPlants, category: 'Edible'}} />
             <PrivateRoute exact component={SeeAllPage} path="/categories-safe-for-pets" componentProps={{searchedPlants: searchedPlants, category: 'Safe For Pets'}} />
             <PrivateRoute exact component={SeeAllPage} path="/categories-blooms" componentProps={{searchedPlants: searchedPlants, category: 'Blooms'}} />
+
+            <PrivateRoute exact component={SeeAllPage} path="/all-plants" componentProps={{searchedPlants: searchedPlants, category: 'All Plants'}} />
             <Route path="/">
               <Redirect to="/home" />
             </Route>

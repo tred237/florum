@@ -11,15 +11,17 @@ export default function SeeAllPage({ searchedPlants, climateType, category }) {
 
     useEffect(() => {
         if(plants && climateType) setFilteredPlants(plants.filter(plant => plant.climate === climateType))
-        else if(plants && category) setFilteredPlants(plants.filter(plant => {
-            if(category === 'Edible') return plant.edible
-            else if(category === 'Safe For Pets') return plant.safe_for_pets
-            else return plant.blooms
-        }))
+        else if(plants && category !== 'All Plants') {
+            setFilteredPlants(
+                plants.filter(plant => {
+                    if(category === 'Edible') return plant.edible
+                    else if(category === 'Safe For Pets') return plant.safe_for_pets
+                    else return plant.blooms
+                })
+            )
+        }
+        else setFilteredPlants([...plants])
     },[plants, climateType, category])
-
-    console.log(climateType)
-    console.log(category)
 
     return(
         <Container>

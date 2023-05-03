@@ -1,21 +1,21 @@
 import { useContext, useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import ListGroup from 'react-bootstrap/ListGroup';
 import Stack from 'react-bootstrap/Stack';
 
 import { UserContext } from '../context/User';
 import { PlantsContext } from '../context/Plants';
 import ClimateCard from '../components/ClimateCard';
-import PlantCard from "../components/PlantCard"
 import CategoryCarousel from '../components/CategoryCarousel';
+import Button from 'react-bootstrap/Button';
 
 export default function HomePage({ searchedPlants }) {
     const { user } = useContext(UserContext);
     const { plants } = useContext(PlantsContext);
-
     const [ediblePlants, setEdiblePlants] = useState([])
     const [safeForPetsPlants, setSafeForPetsPlantsPlants] = useState([])
     const [flowerPlants, setFlowerPlants] = useState([])
+    const history = useHistory()
 
     const categoryType = (header, plant) => {
         if(header === 'Edible') return plant.edible
@@ -38,15 +38,17 @@ export default function HomePage({ searchedPlants }) {
             <Stack direction="horizontal" className="h-100 align-items-center" gap={3}>
                 {['Aquatic','Continental','Dry','Polar','Temperate','Tropical'].map(climate => <ClimateCard key={climate} climateType={climate} />)}
             </Stack>
+            <hr className="hr" />
             <h3>Edible</h3>
             <CategoryCarousel plants={ediblePlants} />
+            <hr className="hr" />
             <h3>Safe For Pets</h3>
             <CategoryCarousel plants={safeForPetsPlants} />
+            <hr className="hr" />
             <h3>Blooms</h3>
             <CategoryCarousel plants={flowerPlants} />
-            <ListGroup> 
-                {plants ? plants.filter(plant => !searchedPlants || plant.name.toLowerCase().startsWith(searchedPlants.toLowerCase())).map((plant) => <PlantCard key={plant.id} plant={plant} />) : null}
-            </ListGroup>
+            <hr className="hr" />
+            <Button onClick={() => history.push('/all-plants')}>See All Plants</Button>
         </Container>
     )
 }
