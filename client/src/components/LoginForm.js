@@ -29,7 +29,7 @@ export default function LoginForm({ formData, loginError, handleSubmit, handleCh
                         <Button variant="outline-success" onMouseUp={handleTogglePassword} onMouseDown={handleTogglePassword} >Show Password</Button>
                     </InputGroup>
                 </Form.Group>
-                {loginError ? <p class="error-message">{loginError}</p> : null}
+                {loginError ? <p className="error-message">{loginError}</p> : null}
                 <Button className="login-signup-btn" variant="success" type="submit">Log in</Button>
             </Form>
         </>
