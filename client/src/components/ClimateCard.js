@@ -12,7 +12,7 @@ export default function ClimateCard({ climateType }) {
         <Card style={{opacity: hover ? 0.8 : 1}} 
                     onMouseOver={() => setHover(true)}
                     onMouseOut={() => setHover(false)} 
-                    onClick={() => history.push(`climates/${climateType.toLowerCase()}`)}>
+                    onClick={() => history.push(`climates-${climateType.toLowerCase()}`)}>
             <Card.Img className="d-block w-100" variant="top" src={florumlogo} alt={`${climateType} Climate Plants`} />
             <Card.Body>
                 <Card.Text>
