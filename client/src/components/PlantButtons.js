@@ -1,10 +1,10 @@
 import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import EditPlantModal from '../modals/EditPlantModal';
+import Stack from 'react-bootstrap/Stack';
 
 import { PlantsContext } from '../context/Plants';
+import EditPlantModal from '../modals/EditPlantModal';
 
 export default function PlantButtons({ plant, setPlant }) {
     const { plants, setPlants } = useContext(PlantsContext)
@@ -29,12 +29,10 @@ export default function PlantButtons({ plant, setPlant }) {
 
     return (
         <>
-            <Col>
+            <Stack direction='horizontal' gap={2}>
                 <Button onClick={handleShowModal}>Edit</Button>
-            </Col>
-            <Col>
                 <Button onClick={handlePlantDelete}>Delete</Button>
-            </Col>
+            </Stack>
             <EditPlantModal plant={plant} setPlant={setPlant} showModal={showModal} onCloseModal={handleCloseModal} />
         </>
     )

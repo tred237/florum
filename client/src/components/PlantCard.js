@@ -17,7 +17,7 @@ export default function PlantCard({ plant }){
                   onClick={() => history.push(`plants/${plant.id}`)}>
                 <Card.Img className="d-block w-100" variant="top" src={florumlogo} alt={plant.name} />
                     <Card.Body>
-                        <Card.Text>
+                        <Card.Text className="position-absolute start-50 translate-middle">
                             {plant.name}
                         </Card.Text>
                     </Card.Body>

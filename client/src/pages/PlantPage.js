@@ -18,7 +18,7 @@ export default function PlantPage() {
 
     return (
         <Container>
-            <h1>{errorMessage ? errorMessage  : <PlantDetails plant={plant} setPlant={setPlant} />}</h1>
+            {errorMessage ? errorMessage  : <PlantDetails plant={plant} setPlant={setPlant} />}
         </Container>
     )
 }

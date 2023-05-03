@@ -1,13 +1,12 @@
 import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image'
 
 import { UserContext } from '../context/User';
 import PlantInformation from './PlantInformation';
-import PlantButtons from './PlantButtons';
 import PlantForum from './PlantForum';
 import Loading from "./Loading";
+import florumlogo from "../img/florumlogo.png";
 
 export default function PlantDetails({ plant, setPlant }) {
     const { user } = useContext(UserContext)
@@ -18,23 +17,17 @@ export default function PlantDetails({ plant, setPlant }) {
         setPlant(updatedPlant)
     }
 
-    
     if(!plant.name) <Loading />
     else return (
-        <Container>
-            <Row>
-                <Col>
-                    <Row>
-                        <Col>{plant.image}</Col>
-                    </Row>
-                    {plant.owner && plant.owner.id === user.id ? <Row><PlantButtons plant={plant} setPlant={setPlant} /></Row> : null}
-                </Col>
-                <Col><PlantInformation plant={plant} /></Col>
-            </Row>
+        <Container className='w-85'>
+            <Container className='d-flex justify-content-center'>
+                <Image className="w-35 h-25" src={florumlogo} />
+            </Container>
+            <Container className='d-flex justify-content-center'>
+                <PlantInformation plant={plant} setPlant={setPlant} />
+            </Container>
             <h2>Description</h2>
-            <Row>
-                <Col>{plant.description}</Col>
-            </Row>
+            {plant.description}
             {plant.forum_entries ? <PlantForum plant={plant} onForumEntrySubmit={handleForumEntrySubmit} />  : null}
         </Container>
     )

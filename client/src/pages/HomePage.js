@@ -48,7 +48,9 @@ export default function HomePage({ searchedPlants }) {
             <h3>Blooms</h3>
             <CategoryCarousel plants={flowerPlants} categoryType='blooms' />
             <hr className="hr" />
-            <Button onClick={() => history.push('/all-plants')}>See All Plants</Button>
+            <div className="d-grid border" >
+                <Button variant="light" onClick={() => history.push('/all-plants')}>See All Plants</Button>
+            </div>
         </Container>
     )
 }
