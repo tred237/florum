@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Stack from 'react-bootstrap/Stack';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
@@ -5,7 +7,10 @@ import Carousel from 'react-bootstrap/Carousel';
 import PlantCard from "../components/PlantCard"
 import florumlogo from "../img/florumlogo.png";
 
-export default function CategoryCarousel({ plants }) {
+export default function CategoryCarousel({ plants, categoryType }) {
+    const [hover, setHover] = useState(false)
+    const history = useHistory()
+
     function splitCarousel(){
         const renderObj = {}
         const firstArr = plants.filter((p,index) => index < 4)
@@ -25,7 +30,10 @@ export default function CategoryCarousel({ plants }) {
             <Carousel.Item>
                 <Stack direction="horizontal" className="h-100 align-items-center" gap={3}>
                     {splitCarousel()[1].map(plant => <PlantCard key={plant.id} plant={plant} />)}
-                    <Card>
+                    <Card style={{opacity: hover ? 0.8 : 1}} 
+                        onMouseOver={() => setHover(true)}
+                        onMouseOut={() => setHover(false)}
+                        onClick={() => history.push(`/categories-${categoryType}`)}>
                         <Card.Img className="d-block w-100" variant="top" src={florumlogo} alt="test" />
                         <Card.Body>
                             <Card.Text>See all</Card.Text>
@@ -40,7 +48,10 @@ export default function CategoryCarousel({ plants }) {
             <Carousel.Item>
                 <Stack direction="horizontal" className="h-100 align-items-center" gap={3}>
                     {splitCarousel()[0].map(plant => <PlantCard key={plant.id} plant={plant} />)}
-                    <Card>
+                    <Card style={{opacity: hover ? 0.8 : 1}} 
+                        onMouseOver={() => setHover(true)}
+                        onMouseOut={() => setHover(false)}
+                        onClick={() => history.push(`/categories-${categoryType}`)}>
                         <Card.Img className="d-block w-100" variant="top" src={florumlogo} alt="test" />
                         <Card.Body>
                             <Card.Text>See all</Card.Text>

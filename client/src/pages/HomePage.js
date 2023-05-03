@@ -40,13 +40,13 @@ export default function HomePage({ searchedPlants }) {
             </Stack>
             <hr className="hr" />
             <h3>Edible</h3>
-            <CategoryCarousel plants={ediblePlants} />
+            <CategoryCarousel plants={ediblePlants} categoryType='edible' />
             <hr className="hr" />
             <h3>Safe For Pets</h3>
-            <CategoryCarousel plants={safeForPetsPlants} />
+            <CategoryCarousel plants={safeForPetsPlants} categoryType='safe-for-pets' />
             <hr className="hr" />
             <h3>Blooms</h3>
-            <CategoryCarousel plants={flowerPlants} />
+            <CategoryCarousel plants={flowerPlants} categoryType='blooms' />
             <hr className="hr" />
             <Button onClick={() => history.push('/all-plants')}>See All Plants</Button>
         </Container>
