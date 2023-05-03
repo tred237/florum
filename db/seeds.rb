@@ -1,5 +1,5 @@
-require 'bcrypt'
-User.create!(email: 'trevor@email.com', username: "trevor", password: 'T3ster!', password_confirmation: 'T3ster!')
+# require 'bcrypt'
+# User.create!(email: 'trevor@email.com', username: "trevor", password: 'T3ster!', password_confirmation: 'T3ster!')
 
 # Plant.create!(
 #     name: "Rose",
