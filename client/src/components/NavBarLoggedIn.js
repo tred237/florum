@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useContext } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -14,6 +14,8 @@ export default function NavBarLoggedIn({ searchedPlants, onSearchChange }) {
     const { setUser } = useContext(UserContext)
     const [showModal, setShowModal] = useState(false)
     const history = useHistory()
+
+    const location = useLocation()
 
     const handleShowModal = () => setShowModal(true)
     const handleCloseModal = () => setShowModal(false)
@@ -41,14 +43,16 @@ export default function NavBarLoggedIn({ searchedPlants, onSearchChange }) {
                         <img alt="" src={florumlogo} width="30" height="30" className="d-inline-block align-top"/>{' '}
                         Florum
                     </Navbar.Brand>
-                    <Nav className="me-auto">
+                    <Nav className={location.pathname !== '/home' && !location.pathname.startsWith('/plants/') ? "me-auto" : null}>
                         <Nav.Link as={Link} to="/my-plants">My Plants</Nav.Link>
                         <Nav.Link onClick={handleShowModal}>Add Plant</Nav.Link>
                         <Nav.Link onClick={handleLogoutClick}>Logout</Nav.Link>
                     </Nav>
-                    <Form>
-                        <Form.Control type="search" placeholder="Search plants" value={searchedPlants} onChange={onSearchChange}/>
-                    </Form>
+                    {location.pathname !== '/home' && !location.pathname.startsWith('/plants/') 
+                        ? <Form>
+                            <Form.Control type="search" placeholder="Search plants" value={searchedPlants} onChange={onSearchChange}/>
+                          </Form>
+                        : null}
                 </Container>
             </Navbar>
             <AddPlantModal showModal={showModal} onCloseModal={handleCloseModal} />
