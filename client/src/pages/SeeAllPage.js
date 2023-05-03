@@ -9,15 +9,13 @@ export default function SeeAllPage({ searchedPlants, climateType, category }) {
     const { plants } = useContext(PlantsContext);
     const [filteredPlants, setFilteredPlants] = useState([])
 
-    const categoryType = (plant) => {
-        if(category === 'Edible') return plant.edible
-        else if(category === 'Safe For Pets') return plant.safe_for_pets
-        else if(category === 'Blooms') return plant.blooms
-    }
-
     useEffect(() => {
         if(plants && climateType) setFilteredPlants(plants.filter(plant => plant.climate === climateType))
-        else if(plants && category) setFilteredPlants(plants.filter(plant => categoryType(plant)))
+        else if(plants && category) setFilteredPlants(plants.filter(plant => {
+            if(category === 'Edible') return plant.edible
+            else if(category === 'Safe For Pets') return plant.safe_for_pets
+            else return plant.blooms
+        }))
     },[plants, climateType, category])
 
     console.log(climateType)
