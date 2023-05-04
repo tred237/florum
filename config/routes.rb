@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :forum_entries, only: [:create]
+  resources :forum_entries, only: [:create, :update]
   post '/signup', to: 'users#create'
   post '/login', to: 'sessions#create'
   get '/current-user', to: 'sessions#show'

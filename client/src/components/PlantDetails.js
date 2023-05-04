@@ -14,12 +14,19 @@ export default function PlantDetails({ plant, setPlant }) {
     const handleForumEntrySubmit = (entry) => {
         const updatedPlant = {...plant}
         updatedPlant.forum_entries = [entry, ...updatedPlant.forum_entries]
+        const filteredPlants = plants.filter(p => p.id !== plant.id)
         setPlant(updatedPlant)
-        
-        const contextPlant = [...plants].find(p => p.id === plant.id)
-        contextPlant.forum_entries = [entry, ...contextPlant.forum_entries]
-        const updatedPlants = [...plants].filter(p => p.id !== plant.id)
-        setPlants([contextPlant, ...updatedPlants])
+        setPlants([updatedPlant, ...filteredPlants])
+    }
+
+    const handleForumEntryEdit = (entry) => {
+        const updatedPlant = {...plant}
+        const filteredForumEntries = updatedPlant.forum_entries.filter(e => e.id !== entry.id)
+        updatedPlant.forum_entries = [entry, ...filteredForumEntries]
+        updatedPlant.forum_entries = updatedPlant.forum_entries.sort((a,b) =>  b.id - a.id)
+        const filteredPlants = [...plants].filter(p => p.id !== plant.id)
+        setPlant(updatedPlant)
+        setPlants([updatedPlant, ...filteredPlants])
     }
 
     if(!plant.name) <Loading />
@@ -35,7 +42,7 @@ export default function PlantDetails({ plant, setPlant }) {
             {plant.description}
             <hr className="hr" />
             <h2>Comments</h2>
-            {plant.forum_entries ? <PlantForum plant={plant} onForumEntrySubmit={handleForumEntrySubmit} />  : null}
+            {plant.forum_entries ? <PlantForum plant={plant} onForumEntrySubmit={handleForumEntrySubmit} onForumEntryEdit={handleForumEntryEdit} /> : null}
         </Container>
     )
 }

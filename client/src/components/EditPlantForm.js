@@ -157,7 +157,7 @@ export default function EditPlantForm({ plant, setPlant, onCloseModal }) {
                                 value={formData.description}
                                 onChange={handleChange} />
                 </Form.Group>
-                <Button variant="success" type="submit">Add Plant</Button>
+                <Button variant="success" type="submit">Edit Plant</Button>
             </Form>
         </Container>
     )
