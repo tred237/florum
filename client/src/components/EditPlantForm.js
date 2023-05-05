@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 
 import { UserContext } from '../context/User';
 import { PlantsContext } from '../context/Plants';
+import sortArray from '../helpers/sort';
 
 export default function EditPlantForm({ plant, setPlant, onCloseModal }) {
     const { user, setUser } = useContext(UserContext)
@@ -43,20 +44,7 @@ export default function EditPlantForm({ plant, setPlant, onCloseModal }) {
                 if(r.ok) r.json().then((updatedPlant) => {
                     const updatedPlants = plants.filter(e => e.id !== updatedPlant.id)
                     const updatedUser = {...user}
-                    updatedUser.owned_plants = [updatedPlant, ...updatedPlants].sort((a,b) => {
-                        const lowerCaseA = a.name.toLowerCase()
-                        const lowerCaseB = b.name.toLowerCase()
-                        if (lowerCaseA < lowerCaseB) return -1
-                        if (b.name < lowerCaseB) return 1
-                        return 0
-                    })
-                    // updatedUser.owned_plants = [newPlant, ...updatedUser.owned_plants].sort((a,b) => {
-                    //     const lowerCaseA = a.name.toLowerCase()
-                    //     const lowerCaseB = b.name.toLowerCase()
-                    //     if (lowerCaseA < lowerCaseB) return -1
-                    //     if (b.name < lowerCaseB) return 1
-                    //     return 0
-                    // })
+                    updatedUser.owned_plants = sortArray([updatedPlant, ...updatedPlants], false, true)
                     setUser(updatedUser)
                     setPlants([...updatedPlants, updatedPlant])
                     setPlant(updatedPlant)

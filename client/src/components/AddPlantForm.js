@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 
 import { UserContext } from '../context/User';
 import { PlantsContext } from '../context/Plants';
+import sortArray from "../helpers/sort"
 
 export default function AddPlant({ onCloseModal }) {
     const { user, setUser } = useContext(UserContext)
@@ -42,13 +43,7 @@ export default function AddPlant({ onCloseModal }) {
         .then(r => {
             if(r.ok) r.json().then((newPlant) => {
                 const updatedUser = {...user}
-                updatedUser.owned_plants = [newPlant, ...updatedUser.owned_plants].sort((a,b) => {
-                    const lowerCaseA = a.name.toLowerCase()
-                    const lowerCaseB = b.name.toLowerCase()
-                    if (lowerCaseA < lowerCaseB) return -1
-                    if (b.name < lowerCaseB) return 1
-                    return 0
-                })
+                updatedUser.owned_plants = sortArray([newPlant, ...updatedUser.owned_plants], false, true)
                 setUser(updatedUser)
                 setPlants([...plants, newPlant])
                 onCloseModal()

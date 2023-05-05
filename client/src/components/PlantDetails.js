@@ -7,6 +7,7 @@ import PlantInformation from './PlantInformation';
 import PlantForum from './PlantForum';
 import Loading from "./Loading";
 import florumlogo from "../img/florumlogo.png";
+import sortArray from '../helpers/sort';
 
 export default function PlantDetails({ plant, setPlant }) {
     const { plants, setPlants } = useContext(PlantsContext)
@@ -22,8 +23,8 @@ export default function PlantDetails({ plant, setPlant }) {
     const handleForumEntryEdit = (entry) => {
         const updatedPlant = {...plant}
         const filteredForumEntries = updatedPlant.forum_entries.filter(e => e.id !== entry.id)
-        updatedPlant.forum_entries = [entry, ...filteredForumEntries]
-        updatedPlant.forum_entries = updatedPlant.forum_entries.sort((a,b) =>  b.id - a.id)
+        updatedPlant.forum_entries = sortArray([entry, ...filteredForumEntries], true)
+
         const filteredPlants = [...plants].filter(p => p.id !== plant.id)
         setPlant(updatedPlant)
         setPlants([updatedPlant, ...filteredPlants])
