@@ -3,10 +3,12 @@ import { useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Stack from 'react-bootstrap/Stack';
 
+import { UserContext } from '../context/User';
 import { PlantsContext } from '../context/Plants';
 import EditPlantModal from '../modals/EditPlantModal';
 
 export default function PlantButtons({ plant, setPlant }) {
+    const { user, setUser } = useContext(UserContext)
     const { plants, setPlants } = useContext(PlantsContext)
     const [showModal, setShowModal] = useState(false)
     const history = useHistory()
@@ -20,7 +22,10 @@ export default function PlantButtons({ plant, setPlant }) {
         })
         .then(r => {
             if(r.ok) {
+                const updatedUser = {...user}
                 const updatedPlants = plants.filter(e => e.id !== plant.id)
+                updatedUser.owned_plants = updatedPlants
+                setUser(updatedUser)
                 setPlants(updatedPlants)
                 history.push("/home")
             }

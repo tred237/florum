@@ -7,7 +7,7 @@ import { UserContext } from '../context/User';
 import { PlantsContext } from '../context/Plants';
 
 export default function AddPlant({ onCloseModal }) {
-    const { user } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
     const { plants, setPlants } = useContext(PlantsContext)
 
     const formDataDefault = {
@@ -41,6 +41,15 @@ export default function AddPlant({ onCloseModal }) {
         })
         .then(r => {
             if(r.ok) r.json().then((newPlant) => {
+                const updatedUser = {...user}
+                updatedUser.owned_plants = [newPlant, ...updatedUser.owned_plants].sort((a,b) => {
+                    const lowerCaseA = a.name.toLowerCase()
+                    const lowerCaseB = b.name.toLowerCase()
+                    if (lowerCaseA < lowerCaseB) return -1
+                    if (b.name < lowerCaseB) return 1
+                    return 0
+                })
+                setUser(updatedUser)
                 setPlants([...plants, newPlant])
                 onCloseModal()
             })

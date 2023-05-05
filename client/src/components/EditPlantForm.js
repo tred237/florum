@@ -7,7 +7,7 @@ import { UserContext } from '../context/User';
 import { PlantsContext } from '../context/Plants';
 
 export default function EditPlantForm({ plant, setPlant, onCloseModal }) {
-    const { user } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
     const { plants, setPlants } = useContext(PlantsContext)
 
     const formDataDefault = {
@@ -42,6 +42,22 @@ export default function EditPlantForm({ plant, setPlant, onCloseModal }) {
             .then(r => {
                 if(r.ok) r.json().then((updatedPlant) => {
                     const updatedPlants = plants.filter(e => e.id !== updatedPlant.id)
+                    const updatedUser = {...user}
+                    updatedUser.owned_plants = [updatedPlant, ...updatedPlants].sort((a,b) => {
+                        const lowerCaseA = a.name.toLowerCase()
+                        const lowerCaseB = b.name.toLowerCase()
+                        if (lowerCaseA < lowerCaseB) return -1
+                        if (b.name < lowerCaseB) return 1
+                        return 0
+                    })
+                    // updatedUser.owned_plants = [newPlant, ...updatedUser.owned_plants].sort((a,b) => {
+                    //     const lowerCaseA = a.name.toLowerCase()
+                    //     const lowerCaseB = b.name.toLowerCase()
+                    //     if (lowerCaseA < lowerCaseB) return -1
+                    //     if (b.name < lowerCaseB) return 1
+                    //     return 0
+                    // })
+                    setUser(updatedUser)
                     setPlants([...updatedPlants, updatedPlant])
                     setPlant(updatedPlant)
                     onCloseModal()

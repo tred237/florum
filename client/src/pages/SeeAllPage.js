@@ -28,7 +28,7 @@ export default function SeeAllPage({ searchedPlants, climateType, category }) {
         <Container>
             <h1>{climateType ? `${climateType} Climate Plants` : `${category}`}</h1>
                 <Row md={4}>
-                    {filteredPlants ? filteredPlants.filter(plant => !searchedPlants || plant.name.toLowerCase().startsWith(searchedPlants.toLowerCase())).map((plant) => <Col><PlantCard key={plant.id} plant={plant} /></Col>) : null}
+                    {filteredPlants ? filteredPlants.filter(plant => !searchedPlants || plant.name.toLowerCase().startsWith(searchedPlants.toLowerCase())).map((plant) => <Col key={plant.id}><PlantCard plant={plant} /></Col>) : null}
                 </Row>
         </Container>
     )
