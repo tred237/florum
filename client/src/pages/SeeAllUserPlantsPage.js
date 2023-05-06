@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/esm/Row';
-import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import { UserContext } from '../context/User';
 import PlantCard from "../components/PlantCard"
 import Loading from '../components/Loading';
 
 export default function SeeAllUserPlants({ searchedPlants, category }) {
-    const { user } = useContext(UserContext);
+    const { user } = useContext(UserContext)
 
     if(!user[category]) <Loading />
     else return(

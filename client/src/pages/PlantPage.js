@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Container from "react-bootstrap/esm/Container";
+import Container from "react-bootstrap/Container";
 import { useParams } from "react-router-dom";
 import PlantDetails from "../components/PlantDetails";
 
