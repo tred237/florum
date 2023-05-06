@@ -36,11 +36,6 @@ class PlantsController < ApplicationController
         head :no_content
     end
 
-    # def my_plants
-    #     plants = Plant.where(owner_id: session[:user_id]).order(:name)
-    #     render json: plants, status: :ok    
-    # end
-
     private
 
     def find_plant

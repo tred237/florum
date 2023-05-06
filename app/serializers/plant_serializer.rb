@@ -4,5 +4,6 @@ class PlantSerializer < ActiveModel::Serializer
   has_many :forum_entries do
     object.forum_entries.order(created_at: :desc)
   end
+  
   belongs_to :owner, foreign_key: :owner_id, class_name: 'User'
 end

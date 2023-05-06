@@ -4,7 +4,4 @@ class ForumEntrySerializer < ActiveModel::Serializer
   def entry_username
     User.find(self.object.user_id).username
   end
-
-  belongs_to :user
-  belongs_to :plant
 end

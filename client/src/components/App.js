@@ -31,7 +31,7 @@ export default function App() {
             <PrivateRoute exact component={HomePage} path="/home" componentProps={{searchedPlants: searchedPlants}} />
             <PrivateRoute exact component={PlantPage} path="/plants/:id" />
             <PrivateRoute exact component={SeeAllUserPlants} path="/my-plants" componentProps={{searchedPlants: searchedPlants, category: 'owned_plants'}} />
-            <PrivateRoute exact component={SeeAllUserPlants} path="/my-commented-plants" componentProps={{searchedPlants: searchedPlants, category: 'commented_plants'}} />
+            <PrivateRoute exact component={SeeAllUserPlants} path="/commented-plants" componentProps={{searchedPlants: searchedPlants, category: 'commented_plants'}} />
             <PrivateRoute exact component={SeeAllPage} path="/climates-aquatic" componentProps={{searchedPlants: searchedPlants, climateType: 'Aquatic'}} />
             <PrivateRoute exact component={SeeAllPage} path="/climates-dry" componentProps={{searchedPlants: searchedPlants, climateType: 'Dry'}} />
             <PrivateRoute exact component={SeeAllPage} path="/climates-continental" componentProps={{searchedPlants: searchedPlants, climateType: 'Continental'}} />
