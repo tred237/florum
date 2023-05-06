@@ -2,9 +2,9 @@ import { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Container from "react-bootstrap/Container";
 
 import ResponseError from "../components/ResponseError"
-import Container from "react-bootstrap/esm/Container";
 
 export default function SignupForm({ onCloseModal }) {
     const formDataDefault = {

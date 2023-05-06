@@ -17,7 +17,7 @@ export default function PlantForumEntry({ entryInfo, onForumEntryEdit }) {
         <ListGroup.Item>
             <Card>
                 <Card.Header>
-                    <p>{`${entryInfo.entry_username}  ${entryInfo.created_at}`}</p>
+                    <p>{`${entryInfo.entry_username}  ${entryInfo.created_at} `}<i>{entryInfo.edited ? 'Edited' : null}</i></p>
                     {user.id === entryInfo.user_id ? <Button onClick={handleShowModal}>Edit</Button> : null}
                 </Card.Header>
                 <Card.Body>

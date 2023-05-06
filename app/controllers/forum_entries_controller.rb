@@ -11,6 +11,7 @@ class ForumEntriesController < ApplicationController
     def update
         entry = ForumEntry.find(params[:id])
         if (entry.user_id == session[:user_id])
+            params[:edited] = true
             entry.update!(entry_update_params)
             render json: entry, status: :ok
         else 
@@ -25,7 +26,7 @@ class ForumEntriesController < ApplicationController
     end
 
     def entry_update_params
-        params.permit(:entry)
+        params.permit(:entry, :edited)
     end
 
     def entry_record_invalid_response(invalid)
