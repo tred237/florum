@@ -2,10 +2,12 @@ import { useContext } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 import { UserContext } from '../context/User';
+import { PlantContext } from '../context/Plant';
 import PlantButtons from './PlantButtons';
 
-export default function PlantInformation({ plant, setPlant }) {
+export default function PlantInformation() {
     const { user } = useContext(UserContext)
+    const { plant } = useContext(PlantContext)
 
     return (
         <ListGroup className="w-50">
@@ -21,7 +23,7 @@ export default function PlantInformation({ plant, setPlant }) {
             {plant.owner && plant.owner.id === user.id 
                 ? 
                     <ListGroup.Item>
-                        <PlantButtons plant={plant} setPlant={setPlant} />
+                        <PlantButtons />
                     </ListGroup.Item>
                 : null
             }

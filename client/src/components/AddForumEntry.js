@@ -3,9 +3,11 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 import { UserContext } from '../context/User';
+import { PlantContext } from '../context/Plant';
 
-export default function AddForumEntry({ plantId, onCloseModal, onForumEntrySubmit }) {
+export default function AddForumEntry({ onCloseModal, onForumEntrySubmit }) {
     const { user } = useContext(UserContext)
+    const { plant } = useContext(PlantContext)
     const formDefault = ''
     const [formData, setFormData] = useState(formDefault)
 
@@ -22,7 +24,7 @@ export default function AddForumEntry({ plantId, onCloseModal, onForumEntrySubmi
             },
             body: JSON.stringify({
                 "user_id": user.id,
-                "plant_id": plantId,
+                "plant_id": plant.id,
                 "entry": formData
             })
         })

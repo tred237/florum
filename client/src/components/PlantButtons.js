@@ -5,11 +5,13 @@ import Stack from 'react-bootstrap/Stack';
 
 import { UserContext } from '../context/User';
 import { PlantsContext } from '../context/Plants';
+import { PlantContext } from '../context/Plant';
 import EditPlantModal from '../modals/EditPlantModal';
 
-export default function PlantButtons({ plant, setPlant }) {
+export default function PlantButtons() {
     const { user, setUser } = useContext(UserContext)
     const { plants, setPlants } = useContext(PlantsContext)
+    const { plant } = useContext(PlantContext)
     const [showModal, setShowModal] = useState(false)
     const history = useHistory()
 
@@ -39,7 +41,7 @@ export default function PlantButtons({ plant, setPlant }) {
                 <Button onClick={handleShowModal}>Edit</Button>
                 <Button onClick={handlePlantDelete}>Delete</Button>
             </Stack>
-            <EditPlantModal plant={plant} setPlant={setPlant} showModal={showModal} onCloseModal={handleCloseModal} />
+            <EditPlantModal showModal={showModal} onCloseModal={handleCloseModal} />
         </>
     )
 }

@@ -1,24 +1,14 @@
-import { useState, useEffect } from "react";
 import Container from "react-bootstrap/Container";
-import { useParams } from "react-router-dom";
 import PlantDetails from "../components/PlantDetails";
 
+import { PlantProvider } from "../context/Plant";
+
 export default function PlantPage() {
-    const [plant, setPlant] = useState([])
-    const [errorMessage, setErrorMessage] = useState(null)
-    const plantId = useParams()
-
-    useEffect(() => {
-        fetch(`/plants/${plantId.id}`)
-        .then(r => {
-            if(r.ok) r.json().then(data => setPlant(data))
-            else r.json().then(err => setErrorMessage(err.error))
-        })
-    },[plantId])
-
     return (
-        <Container>
-            {errorMessage ? errorMessage  : <PlantDetails plant={plant} setPlant={setPlant} />}
-        </Container>
+        <PlantProvider>
+            <Container>
+                <PlantDetails />
+            </Container>
+        </PlantProvider>
     )
 }

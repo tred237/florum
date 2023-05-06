@@ -5,11 +5,13 @@ import Button from 'react-bootstrap/Button';
 
 import { UserContext } from '../context/User';
 import { PlantsContext } from '../context/Plants';
+import { PlantContext } from '../context/Plant';
 import sortArray from '../helpers/sort';
 
-export default function EditPlantForm({ plant, setPlant, onCloseModal }) {
+export default function EditPlantForm({ onCloseModal }) {
     const { user, setUser } = useContext(UserContext)
     const { plants, setPlants } = useContext(PlantsContext)
+    const { plant, setPlant } = useContext(PlantContext)
 
     const formDataDefault = {
         name: plant.name,
