@@ -38,8 +38,8 @@ export default function PlantDetails() {
         setPlants([updatedPlant, ...filteredPlants])
     }
 
-    if(!plant.name) <Loading />
-    else if(errorMessage) return <p>{errorMessage}</p>
+    if(errorMessage) return <p>{errorMessage}</p>
+    else if(!plant.name) <Loading />
     else return (
         <Container>
             <Container className='d-flex justify-content-center'>

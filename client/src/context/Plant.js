@@ -16,9 +16,8 @@ export function PlantProvider({ children }) {
         })
     },[plantId])
 
-    console.log(plantId)
+    console.log("plant")
     console.log(plant)
-    console.log(`Error message: ${errorMessage}`)
 
     return (
         <PlantContext.Provider value={{ plant, setPlant, errorMessage }}>
