@@ -1,7 +1,7 @@
-export default function sortArray(arr, isDesc = false, stringCategory = false) {
+export default function sortArray(arr, isDesc = false, stringCategory = null) {
     return arr.sort((a,b) => {
-        const categoryA =  stringCategory ? a.name.toLowerCase() : a.id
-        const categoryB = stringCategory ? b.name.toLowerCase() : b.id
+        const categoryA = stringCategory ? a[stringCategory].toLowerCase() : a.id
+        const categoryB = stringCategory ? b[stringCategory].toLowerCase() : b.id
         if(isDesc) return descending(categoryA, categoryB)
         else return ascending(categoryA, categoryB)
     })

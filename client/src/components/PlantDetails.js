@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 
+import { UserContext } from '../context/User';
 import { PlantsContext } from '../context/Plants';
 import PlantInformation from './PlantInformation';
 import PlantForum from './PlantForum';
@@ -10,6 +11,7 @@ import florumlogo from "../img/florumlogo.png";
 import sortArray from '../helpers/sort';
 
 export default function PlantDetails({ plant, setPlant }) {
+    const { user, setUser } = useContext(UserContext)
     const { plants, setPlants } = useContext(PlantsContext)
 
     const handleForumEntrySubmit = (entry) => {
@@ -18,6 +20,10 @@ export default function PlantDetails({ plant, setPlant }) {
         const filteredPlants = plants.filter(p => p.id !== plant.id)
         setPlant(updatedPlant)
         setPlants([updatedPlant, ...filteredPlants])
+
+        const updatedUser = {...user}
+        if(!updatedUser.commented_plants.find(p => p.id === updatedPlant.id)) updatedUser.commented_plants = sortArray([updatedPlant,...updatedUser.commented_plants], false, 'name')
+        setUser(updatedUser)
     }
 
     const handleForumEntryEdit = (entry) => {

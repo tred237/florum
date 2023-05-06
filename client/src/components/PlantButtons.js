@@ -23,8 +23,9 @@ export default function PlantButtons({ plant, setPlant }) {
         .then(r => {
             if(r.ok) {
                 const updatedUser = {...user}
-                const updatedPlants = plants.filter(e => e.id !== plant.id)
+                const updatedPlants = plants.filter(p => p.id !== plant.id)
                 updatedUser.owned_plants = updatedPlants
+                updatedUser.commented_plants = updatedUser.commented_plants.filter(p => p.id !== plant.id)
                 setUser(updatedUser)
                 setPlants(updatedPlants)
                 history.push("/home")

@@ -43,7 +43,7 @@ export default function AddPlant({ onCloseModal }) {
         .then(r => {
             if(r.ok) r.json().then((newPlant) => {
                 const updatedUser = {...user}
-                updatedUser.owned_plants = sortArray([newPlant, ...updatedUser.owned_plants], false, true)
+                updatedUser.owned_plants = sortArray([newPlant, ...updatedUser.owned_plants], false, 'name')
                 setUser(updatedUser)
                 setPlants([...plants, newPlant])
                 onCloseModal()

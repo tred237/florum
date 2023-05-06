@@ -44,7 +44,7 @@ export default function EditPlantForm({ plant, setPlant, onCloseModal }) {
                 if(r.ok) r.json().then((updatedPlant) => {
                     const updatedPlants = plants.filter(e => e.id !== updatedPlant.id)
                     const updatedUser = {...user}
-                    updatedUser.owned_plants = sortArray([updatedPlant, ...updatedPlants], false, true)
+                    updatedUser.owned_plants = sortArray([updatedPlant, ...updatedPlants], false, 'name')
                     setUser(updatedUser)
                     setPlants([...updatedPlants, updatedPlant])
                     setPlant(updatedPlant)

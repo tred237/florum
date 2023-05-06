@@ -8,6 +8,9 @@ import HomePage from "../pages/HomePage"
 import PlantPage from "../pages/PlantPage";
 import MyPlants from "../pages/MyPlantsPage";
 import SeeAllPage from "../pages/SeeAllPage";
+
+import SeeAllUserPlants from "../pages/SeeAllUserPlantsPage";
+
 import NavBarLoggedOut from "./NavBarLoggedOut";
 import NavBarLoggedin from "./NavBarLoggedIn";
 import Loading from "./Loading";
@@ -29,7 +32,8 @@ export default function App() {
             <PublicRoute exact component={LoginPage} path="/login" />
             <PrivateRoute exact component={HomePage} path="/home" componentProps={{searchedPlants: searchedPlants}} />
             <PrivateRoute exact component={PlantPage} path="/plants/:id" />
-            <PrivateRoute exact component={MyPlants} path="/my-plants" componentProps={{searchedPlants: searchedPlants}} />
+            <PrivateRoute exact component={SeeAllUserPlants} path="/my-plants" componentProps={{searchedPlants: searchedPlants, category: 'owned_plants'}} />
+            <PrivateRoute exact component={SeeAllUserPlants} path="/my-commented-plants" componentProps={{searchedPlants: searchedPlants, category: 'commented_plants'}} />
             <PrivateRoute exact component={SeeAllPage} path="/climates-aquatic" componentProps={{searchedPlants: searchedPlants, climateType: 'Aquatic'}} />
             <PrivateRoute exact component={SeeAllPage} path="/climates-dry" componentProps={{searchedPlants: searchedPlants, climateType: 'Dry'}} />
             <PrivateRoute exact component={SeeAllPage} path="/climates-continental" componentProps={{searchedPlants: searchedPlants, climateType: 'Continental'}} />
@@ -39,7 +43,6 @@ export default function App() {
             <PrivateRoute exact component={SeeAllPage} path="/categories-edible" componentProps={{searchedPlants: searchedPlants, category: 'Edible'}} />
             <PrivateRoute exact component={SeeAllPage} path="/categories-safe-for-pets" componentProps={{searchedPlants: searchedPlants, category: 'Safe For Pets'}} />
             <PrivateRoute exact component={SeeAllPage} path="/categories-blooms" componentProps={{searchedPlants: searchedPlants, category: 'Blooms'}} />
-
             <PrivateRoute exact component={SeeAllPage} path="/all-plants" componentProps={{searchedPlants: searchedPlants, category: 'All Plants'}} />
             <Route path="/">
               <Redirect to="/home" />
