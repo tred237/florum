@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import { UserContext } from '../context/User';
 
 export default function AddForumEntry({ plantId, onCloseModal, onForumEntrySubmit }) {
-    const { user, setUser } = useContext(UserContext)
+    const { user } = useContext(UserContext)
     const formDefault = ''
     const [formData, setFormData] = useState(formDefault)
 

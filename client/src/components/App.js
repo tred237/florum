@@ -6,9 +6,7 @@ import { PlantsProvider } from "../context/Plants";
 import LoginPage from "../pages/LoginPage"
 import HomePage from "../pages/HomePage"
 import PlantPage from "../pages/PlantPage";
-import MyPlants from "../pages/MyPlantsPage";
 import SeeAllPage from "../pages/SeeAllPage";
-
 import SeeAllUserPlants from "../pages/SeeAllUserPlantsPage";
 
 import NavBarLoggedOut from "./NavBarLoggedOut";
