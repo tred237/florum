@@ -17,9 +17,6 @@ export function PlantsProvider({ children }) {
         }
     }, [user])
 
-    console.log("plants")
-    console.log(plants)
-
     return (
         <PlantsContext.Provider value={{ plants, setPlants }}>
             {children}
