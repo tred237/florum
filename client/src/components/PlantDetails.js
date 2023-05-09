@@ -4,15 +4,17 @@ import Image from 'react-bootstrap/Image';
 
 import { UserContext } from '../context/User';
 import { PlantsContext } from '../context/Plants';
+import { PlantContext } from '../context/Plant';
 import PlantInformation from './PlantInformation';
 import PlantForum from './PlantForum';
 import Loading from "./Loading";
 import florumlogo from "../img/florumlogo.png";
 import sortArray from '../helpers/sort';
 
-export default function PlantDetails({ plant, setPlant }) {
+export default function PlantDetails() {
     const { user, setUser } = useContext(UserContext)
     const { plants, setPlants } = useContext(PlantsContext)
+    const { plant, setPlant, errorMessage } = useContext(PlantContext)
 
     const handleForumEntrySubmit = (entry) => {
         const updatedPlant = {...plant}
@@ -36,20 +38,21 @@ export default function PlantDetails({ plant, setPlant }) {
         setPlants([updatedPlant, ...filteredPlants])
     }
 
-    if(!plant.name) <Loading />
+    if(errorMessage) return <p>{errorMessage}</p>
+    else if(!plant.name) <Loading />
     else return (
         <Container>
             <Container className='d-flex justify-content-center'>
                 <Image className="w-35 h-25" src={florumlogo} />
             </Container>
             <Container className='d-flex justify-content-center'>
-                <PlantInformation plant={plant} setPlant={setPlant} />
+                <PlantInformation />
             </Container>
             <h2>{plant.description ? "Description" : null}</h2>
             {plant.description}
             <hr className="hr" />
             <h2>Comments</h2>
-            {plant.forum_entries ? <PlantForum plant={plant} onForumEntrySubmit={handleForumEntrySubmit} onForumEntryEdit={handleForumEntryEdit} /> : null}
+            {plant.forum_entries ? <PlantForum onForumEntrySubmit={handleForumEntrySubmit} onForumEntryEdit={handleForumEntryEdit} /> : null}
         </Container>
     )
 }
