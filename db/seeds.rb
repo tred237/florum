@@ -1,9 +1,8 @@
-# require_relative './assets/images/lipstickplant'
 # User.create!(email: 'trevor@email.com', username: "trevor", password: 'T3ster!', password_confirmation: 'T3ster!')
 
 # Plant.create!(
 #     name: "Lipstick Plant",
-#     image: './db/assets/lipstickplant.jpg',
+#     image: 'lipstickplant.jpg',
 #     climate: 'Tropical', 
 #     light: "Bright, indirect light",
 #     water: "Enough to keep soil moist",
@@ -17,7 +16,7 @@
 
 # Plant.create!(
 #     name: "Golden Pothos",
-#     image: './db/assets/goldenpothos.jpg',
+#     image: 'goldenpothos.jpg',
 #     climate: 'Temperate', 
 #     light: "Indirect, medium to low",
 #     water: "Every 1-2 weeks allowing soil to dry between",
@@ -31,7 +30,7 @@
 
 # Plant.create!(
 #     name: "Olive Tree",
-#     image: './db/assets/olivetree.jpg',
+#     image: 'olivetree.jpg',
 #     climate: 'Temperate', 
 #     light: "Bright, direct sunlight",
 #     water: "Water soil thoroughly",
@@ -45,7 +44,7 @@
 
 # Plant.create!(
 #     name: "String of Raindrops",
-#     image: './db/assets/stringofraindrops.jpg',
+#     image: 'stringofraindrops.jpg',
 #     climate: 'Temperate', 
 #     light: "Bright, direct sunlight",
 #     water: "Water soil thoroughly",
@@ -59,7 +58,7 @@
 
 # Plant.create!(
 #     name: "Mint",
-#     image: './db/assets/mint.jpg',
+#     image: 'mint.jpg',
 #     climate: 'Temperate', 
 #     light: "Bright, direct sunlight",
 #     water: "Every few days to prevent soil from drying",
@@ -73,7 +72,7 @@
 
 # Plant.create!(
 #     name: "Rosemary",
-#     image: './db/assets/rosemary.jpg',
+#     image: 'rosemary.jpg',
 #     climate: 'Temperate', 
 #     light: "Bright, direct sunlight",
 #     water: "Every few days",
@@ -87,7 +86,7 @@
 
 # Plant.create!(
 #     name: "Aspargus Fern",
-#     image: './db/assets/asparagusfern.jpg',
+#     image: 'asparagusfern.jpg',
 #     climate: 'Tropical', 
 #     light: "Direct or bright indirect light",
 #     water: "Daily misting",
@@ -101,7 +100,7 @@
 
 # Plant.create!(
 #     name: "Golden Barrel Cluster",
-#     image: './db/assets/goldenbarrelcluster.jpg',
+#     image: 'goldenbarrelcluster.jpg',
 #     climate: 'Dry', 
 #     light: "Direct sun to part shade",
 #     water: "Water when soil is completely dried out",
@@ -115,7 +114,7 @@
 
 # Plant.create!(
 #     name: "String of Hearts",
-#     image: './db/assets/stringofhearts.jpg',
+#     image: 'stringofhearts.jpg',
 #     climate: 'Tropical', 
 #     light: "Bright, indirect light",
 #     water: "Regularly in spring nad summer allowing soil to dry out between waterings",
@@ -129,7 +128,7 @@
 
 # Plant.create!(
 #     name: "Carrot",
-#     image: './db/assets/carrot.jpg',
+#     image: 'carrot.jpg',
 #     climate: 'Temperate', 
 #     light: "Bright light",
 #     water: "Soak the soil thoroughly and deeply, then let the soil dry slightly before watering again",
@@ -143,7 +142,7 @@
 
 # Plant.create!(
 #     name: "Avacado",
-#     image: './db/assets/avacado.jpg',
+#     image: 'avacado.jpg',
 #     climate: 'Tropical', 
 #     light: "Bright light",
 #     water: "Medium",
@@ -157,7 +156,7 @@
 
 # Plant.create!(
 #     name: "Bell Pepper",
-#     image: './db/assets/bellpepper.jpg',
+#     image: 'bellpepper.jpg',
 #     climate: 'Tropical', 
 #     light: "Bright light",
 #     water: "Well watered, never soggy",
@@ -171,7 +170,7 @@
 
 # Plant.create!(
 #     name: "Roma Tomato",
-#     image: './db/assets/romatomato.jpg',
+#     image: 'romatomato.jpg',
 #     climate: 'Temperate', 
 #     light: "Bright light",
 #     water: "Well watered, never soggy",
@@ -185,7 +184,7 @@
 
 # Plant.create!(
 #     name: "Pickle Plant",
-#     image: './db/assets/pickleplant.jpg',
+#     image: 'pickleplant.jpg',
 #     climate: 'Temperate', 
 #     light: "Full or partial sun",
 #     water: "Water when dry",
