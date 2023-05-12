@@ -26,9 +26,9 @@ export default function PlantCard({ plant }){
                 onMouseOver={() => setHover(true)}
                 onMouseOut={() => setHover(false)} 
                 onClick={() => history.push(`plants/${plant.id}`)}>
-            <Card.Img className="d-block w-100" variant="top" src={plantImage()} alt={plant.name} onError={(e) => e.target.src = florumlogo} />
-                <Card.Body>
-                    <Card.Text className="position-absolute start-50 translate-middle">
+            <Card.Img className="d-block img-thumbnail" variant="top" src={plantImage()} alt={plant.name} onError={(e) => e.target.src = florumlogo} />
+                <Card.Body className="p-3 text-center">
+                    <Card.Text>
                         {plant.name}
                     </Card.Text>
                 </Card.Body>

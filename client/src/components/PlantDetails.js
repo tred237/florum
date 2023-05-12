@@ -55,8 +55,8 @@ export default function PlantDetails() {
     else if(!plant.name) <Loading />
     else return (
         <Container>
-            <Container className='d-flex justify-content-center'>
-                <Image className="w-35 h-25" src={plantImage()} alt={plant.name} onError={(e) => e.target.src = florumlogo} />
+            <Container className='d-flex justify-content-center p-4 w-50 h-25'>
+                <Image className="img-fluid " src={plantImage()} alt={plant.name} onError={(e) => e.target.src = florumlogo} />
             </Container>
             <Container className='d-flex justify-content-center'>
                 <PlantInformation />
