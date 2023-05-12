@@ -38,12 +38,25 @@ export default function PlantDetails() {
         setPlants([updatedPlant, ...filteredPlants])
     }
 
+    function plantImage() {
+        let errored = false
+        try {
+            require(`../img/${plant.image}`)
+        }
+        catch(err) {
+            errored = true
+        }
+
+        if(errored) return plant.image 
+        else return require(`../img/${plant.image}`)
+    }
+
     if(errorMessage) return <p>{errorMessage}</p>
     else if(!plant.name) <Loading />
     else return (
         <Container>
             <Container className='d-flex justify-content-center'>
-                <Image className="w-35 h-25" src={florumlogo} />
+                <Image className="w-35 h-25" src={plantImage()} alt={plant.name} onError={(e) => e.target.src = florumlogo} />
             </Container>
             <Container className='d-flex justify-content-center'>
                 <PlantInformation />
