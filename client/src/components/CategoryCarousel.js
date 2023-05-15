@@ -30,7 +30,7 @@ export default function CategoryCarousel({ plants, categoryType }) {
         </Carousel>
     )
     else return (
-        <Carousel className='p-1' interval={null} wrap={false}>
+        <Carousel className='pb-3' interval={null} wrap={false}>
             <Carousel.Item>
                 <Stack direction="horizontal" className="h-100 align-items-center" gap={3} style={{height: '320px'}}>
                     {splitCarousel()[0].map(plant => <PlantCard key={plant.id} plant={plant} />)}

@@ -22,7 +22,8 @@ export default function PlantCard({ plant, categoryType }){
     }
 
     if(categoryType) return(
-        <Card style={{opacity: hover ? 0.8 : 1, width: '100%'}} 
+        <Card className='w-75 h-100'
+            style={{opacity: hover ? 0.8 : 1, width: '100%'}} 
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
             onClick={() => history.push(`/categories-${categoryType}`)}>
@@ -33,7 +34,7 @@ export default function PlantCard({ plant, categoryType }){
         </Card>
     )
     else return(
-        <Card className='w-100 h-100'
+        <Card className='w-75 h-100'
             style={{opacity: hover ? 0.8 : 1}} 
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)} 
