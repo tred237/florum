@@ -15,7 +15,7 @@ export default function PlantForum({ onForumEntrySubmit, onForumEntryEdit }) {
 
     return (
         <>
-            <Button onClick={handleShowModal}>Comment</Button>
+            <Button variant="success" onClick={handleShowModal}>Comment</Button>
             <ListGroup>
                 {plant.forum_entries.map(e => <PlantForumEntry key={e.id} entryInfo={e} onForumEntryEdit={onForumEntryEdit} />)}
             </ListGroup>

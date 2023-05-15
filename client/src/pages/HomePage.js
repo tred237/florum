@@ -32,8 +32,8 @@ export default function HomePage({ searchedPlants }) {
     },[plants])
 
     return(
-        <Container className='w-75'>
-            <h1 className='p-2'>{`Welcome ${user.username}!`}</h1>
+        <Container className='w-75 pt-3'>
+            <h1>{`Welcome ${user.username}!`}</h1>
             <h3 className='p-2'>Climate Types</h3>
             <Stack direction="horizontal" className="h-100 align-items-center pb-3" gap={3}>
                 {['Aquatic','Continental','Dry','Polar','Temperate','Tropical'].map(climate => <ClimateCard key={climate} climateType={climate} />)}

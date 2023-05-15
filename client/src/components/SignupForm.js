@@ -47,7 +47,7 @@ export default function SignupForm({ onCloseModal }) {
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
-                <Form.Group className="login-signup-input">
+                <Form.Group>
                     <Form.Label>Email Address *</Form.Label>
                     <Form.Control required
                                 type='email' 
@@ -56,7 +56,7 @@ export default function SignupForm({ onCloseModal }) {
                                 value={formData.email}
                                 onChange={handleChange} />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2">
                     <Form.Label>Username *</Form.Label>
                     <Form.Control required
                                 placeholder="Enter username"
@@ -64,7 +64,7 @@ export default function SignupForm({ onCloseModal }) {
                                 value={formData.username}
                                 onChange={handleChange} />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2">
                     <Form.Label>Password *</Form.Label>
                     <InputGroup>
                         <Form.Control required
@@ -81,7 +81,7 @@ export default function SignupForm({ onCloseModal }) {
                         Passwords must contain at least one of the following symbols: !@#$%^&*()_+
                     </Form.Text>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2">
                     <Form.Label>Password Confirmation *</Form.Label>
                     <Form.Control required
                                 type={showPassword ? "text" : "password" }
@@ -90,7 +90,9 @@ export default function SignupForm({ onCloseModal }) {
                                 value={formData.password_confirmation} 
                                 onChange={handleChange} />
                 </Form.Group>
+                <Container className="pt-2 pb-2">
                 {signupError ? signupError.map((e, index) => <ResponseError key={index} responseItem={e} />) : null}
+                </Container>
                 <Button className="signup-btn" variant="success" type="submit">Create Account</Button>
             </Form>
         </Container>

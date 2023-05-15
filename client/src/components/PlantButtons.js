@@ -38,8 +38,8 @@ export default function PlantButtons() {
     return (
         <>
             <Stack direction='horizontal' gap={2}>
-                <Button onClick={handleShowModal}>Edit</Button>
-                <Button onClick={handlePlantDelete}>Delete</Button>
+                <Button variant="success" onClick={handleShowModal}>Edit</Button>
+                <Button variant="success" onClick={handlePlantDelete}>Delete</Button>
             </Stack>
             <EditPlantModal showModal={showModal} onCloseModal={handleCloseModal} />
         </>

@@ -37,7 +37,7 @@ export default function NavBarLoggedIn({ searchedPlants, onSearchChange }) {
 
     return (
         <React.Fragment>
-            <Navbar bg="dark" variant="dark">
+            <Navbar className="nav-bar-style" variant='dark'>
                 <Container>
                     <Navbar.Brand as={Link} to="/home">
                         <img alt="" src={florumlogo} width="30" height="30" className="d-inline-block align-top"/>{' '}
