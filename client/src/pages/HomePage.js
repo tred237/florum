@@ -32,22 +32,22 @@ export default function HomePage({ searchedPlants }) {
     },[plants])
 
     return(
-        <Container>
-            <h1>{`Welcome ${user.username}!`}</h1>
-            <h3>Climate Types</h3>
-            <Stack direction="horizontal" className="h-100 align-items-center" gap={3}>
+        <Container className='w-75'>
+            <h1 className='p-2'>{`Welcome ${user.username}!`}</h1>
+            <h3 className='p-2'>Climate Types</h3>
+            <Stack direction="horizontal" className="h-100 align-items-center pb-3" gap={3}>
                 {['Aquatic','Continental','Dry','Polar','Temperate','Tropical'].map(climate => <ClimateCard key={climate} climateType={climate} />)}
             </Stack>
-            <hr className="hr" />
+            <hr className="hr p-1" />
             <h3>Edible</h3>
             <CategoryCarousel plants={ediblePlants} categoryType='edible' />
-            <hr className="hr" />
+            <hr className="hr p-1" />
             <h3>Safe For Pets</h3>
             <CategoryCarousel plants={safeForPetsPlants} categoryType='safe-for-pets' />
-            <hr className="hr" />
+            <hr className="hr p-1" />
             <h3>Blooms</h3>
             <CategoryCarousel plants={flowerPlants} categoryType='blooms' />
-            <hr className="hr" />
+            <hr className="hr p-1" />
             <div className="d-grid border" >
                 <Button variant="light" onClick={() => history.push('/all-plants')}>See All Plants</Button>
             </div>
