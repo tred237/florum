@@ -32,10 +32,12 @@ git clone <pasted-ssh-key>
 cd florum
 bundle install
 npm install
+```
+6. In the same directory, start the app using:
+```
 rails s
 npm start
 ```
-
 - You can access the Rails API routes at: http://localhost:3000
 - You can access the Florum front-end at: http://localhost:4000
 
