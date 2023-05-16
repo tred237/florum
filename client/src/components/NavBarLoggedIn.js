@@ -47,6 +47,7 @@ export default function NavBarLoggedIn({ searchedPlants, onSearchChange }) {
                     </Stack>
                     </Navbar.Brand>
                     <Nav className={location.pathname !== '/home' && !location.pathname.startsWith('/plants/') ? "me-auto" : null}>
+                        <Nav.Link as={Link} to="/home">Home</Nav.Link>
                         <Nav.Link as={Link} to="/my-plants">My Plants</Nav.Link>
                         <Nav.Link as={Link} to="/commented-plants">Commented Plants</Nav.Link>
                         <Nav.Link onClick={handleShowModal}>Add Plant</Nav.Link>
