@@ -1,3 +1,4 @@
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 #!/usr/bin/env bash
 # exit on error
 set -o errexit
