@@ -21,8 +21,6 @@ export default function PlantCard({ plant, categoryType, isCarousel=false }){
         else return require(`../img/${plant.image}`)
     }
 
-    console.log(isCarousel)
-
     if(categoryType) return(
         <Card className={isCarousel ? 'carousel-card-sizing' : 'card-sizing'}
             style={{opacity: hover ? 0.8 : 1}} 

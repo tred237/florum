@@ -1,5 +1,4 @@
 class ForumEntriesController < ApplicationController
-    before_action :authorize
     rescue_from ActiveRecord::RecordInvalid, with: :entry_record_invalid_response
     rescue_from ActiveRecord::RecordNotFound, with: :entry_record_not_found_repsonse
 

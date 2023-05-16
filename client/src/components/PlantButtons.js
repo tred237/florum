@@ -26,7 +26,7 @@ export default function PlantButtons() {
             if(r.ok) {
                 const updatedUser = {...user}
                 const updatedPlants = plants.filter(p => p.id !== plant.id)
-                updatedUser.owned_plants = updatedPlants
+                updatedUser.owned_plants = updatedPlants.filter(p => p.owner.id === user.id)
                 updatedUser.commented_plants = updatedUser.commented_plants.filter(p => p.id !== plant.id)
                 setUser(updatedUser)
                 setPlants(updatedPlants)

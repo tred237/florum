@@ -9,7 +9,7 @@ import ClimateCard from '../components/ClimateCard';
 import CategoryCarousel from '../components/CategoryCarousel';
 import Button from 'react-bootstrap/Button';
 
-export default function HomePage({ searchedPlants }) {
+export default function HomePage() {
     const { user } = useContext(UserContext);
     const { plants } = useContext(PlantsContext);
     const [ediblePlants, setEdiblePlants] = useState([])
@@ -30,6 +30,8 @@ export default function HomePage({ searchedPlants }) {
             setFlowerPlants(plants.filter(plant => categoryType('Has Flowers', plant)))
         }
     },[plants])
+
+    console.log(user)
 
     return(
         <Container className='w-75 pt-3'>

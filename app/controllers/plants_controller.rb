@@ -1,6 +1,4 @@
 class PlantsController < ApplicationController
-    before_action :authorize
-
     rescue_from ActiveRecord::RecordInvalid, with: :plant_record_invalid_response
     rescue_from ActiveRecord::RecordNotFound, with: :plant_record_not_found_repsonse
 
