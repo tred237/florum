@@ -34,20 +34,20 @@ export default function HomePage({ searchedPlants }) {
     return(
         <Container className='w-75 pt-3'>
             <h1>{`Welcome ${user.username}!`}</h1>
-            <h3 className='p-2'>Climate Types</h3>
-            <Stack direction="horizontal" className="h-100 align-items-center pb-3" gap={3}>
+            <h3 className='pt-2 pb-1'>Climate Types</h3>
+            <Stack direction="horizontal" className="h-100 align-items-center pb-4" gap={3}>
                 {['Aquatic','Continental','Dry','Polar','Temperate','Tropical'].map(climate => <ClimateCard key={climate} climateType={climate} />)}
             </Stack>
-            <hr className="hr p-1" />
-            <h3>Edible</h3>
+            <hr className="hr pb-3 m-0" />
+            <h3 className="homepage-header">Edible</h3>
             <CategoryCarousel plants={ediblePlants} categoryType='edible' />
-            <hr className="hr p-1" />
-            <h3>Safe For Pets</h3>
+            <hr className="hr pb-3 m-0" />
+            <h3 className="homepage-header">Safe For Pets</h3>
             <CategoryCarousel plants={safeForPetsPlants} categoryType='safe-for-pets' />
-            <hr className="hr p-1" />
-            <h3>Blooms</h3>
+            <hr className="hr pb-3 m-0" />
+            <h3 className="homepage-header">Blooms</h3>
             <CategoryCarousel plants={flowerPlants} categoryType='blooms' />
-            <hr className="hr p-1" />
+            <hr className="hr pb-4 m-0" />
             <div className="d-grid border" >
                 <Button variant="light" onClick={() => history.push('/all-plants')}>See All Plants</Button>
             </div>

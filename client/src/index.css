@@ -1,3 +1,15 @@
+.App {
+    position: relative;
+    background-color: #CEC0A0;
+    padding-bottom: 8%;
+    min-height: 100vh;
+}
+
+.florum-logo-nav {
+    text-align: center;
+    padding-top: 11%;
+}
+
 .login-signup-container {
     margin-top: 5%;
     padding-left: 10%;
@@ -17,5 +29,76 @@
 
 .nav-bar-style {
     background-color: #198754;
-    height: 75px;
+    height: 10vh;
+}
+
+.homepage-header {
+    text-align: center;
+    padding-bottom: .5%;
+}
+
+.carousel-outer {
+    height: 45vh;
+}
+
+.carousel-inner {
+    margin-left: 4.9%;
+}
+
+.card-sizing {
+    width: 83%;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.carousel-card-sizing {
+    width: 19%;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.plant-image {
+    height: 30vh;
+    border-radius: 10px;
+}
+
+.see-all-header {
+    padding-left: 7vw;
+}
+
+.see-all-container {
+    padding-top: 3vh;
+}
+
+.see-all-row {
+    width: 95%;
+    padding-left: 6vw;
+}
+
+.see-all-col {
+    padding-bottom: 7vh;
+}
+
+.plant-details-image {
+    height: 80vh;
+    width: 69%;
+}
+
+.footer {
+    /* display: flex; */
+    position: absolute;
+    bottom: 0;
+    background-color: #198754;
+    height: 10vh;
+    width: 100%;
+}
+
+.footer-text {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 48%;
+    color: #ffffff;
 }

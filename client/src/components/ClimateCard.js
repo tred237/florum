@@ -9,10 +9,11 @@ export default function ClimateCard({ climateType }) {
     const history = useHistory()
 
     return (
-        <Card style={{opacity: hover ? 0.8 : 1}} 
-                    onMouseOver={() => setHover(true)}
-                    onMouseOut={() => setHover(false)} 
-                    onClick={() => history.push(`climates-${climateType.toLowerCase()}`)}>
+        <Card className='p-1' 
+            style={{opacity: hover ? 0.8 : 1}} 
+            onMouseOver={() => setHover(true)}
+            onMouseOut={() => setHover(false)} 
+            onClick={() => history.push(`climates-${climateType.toLowerCase()}`)}>
             <Card.Img className="d-block w-100" variant="top" src={florumlogo} alt={`${climateType} Climate Plants`} />
             <Card.Body>
                 <Card.Text className='position-absolute start-50 translate-middle'>

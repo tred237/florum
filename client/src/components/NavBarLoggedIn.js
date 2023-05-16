@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
+import Stack from 'react-bootstrap/Stack';
 
 import { UserContext } from '../context/User';
 import AddPlantModal from '../modals/AddPlantModal';
@@ -36,12 +37,14 @@ export default function NavBarLoggedIn({ searchedPlants, onSearchChange }) {
     }
 
     return (
-        <React.Fragment>
+        <>
             <Navbar className="nav-bar-style" variant='dark'>
-                <Container>
+                <Container className='w-75'>
                     <Navbar.Brand as={Link} to="/home">
-                        <img alt="" src={florumlogo} width="30" height="30" className="d-inline-block align-top"/>{' '}
-                        Florum
+                    <Stack  direction="horizontal" gap={3}>
+                        <img alt="" src={florumlogo} width="50" height="50" className="d-inline-block align-top"/>{' '}
+                        <p className="florum-logo-nav">Florum</p>
+                    </Stack>
                     </Navbar.Brand>
                     <Nav className={location.pathname !== '/home' && !location.pathname.startsWith('/plants/') ? "me-auto" : null}>
                         <Nav.Link as={Link} to="/my-plants">My Plants</Nav.Link>
@@ -57,6 +60,6 @@ export default function NavBarLoggedIn({ searchedPlants, onSearchChange }) {
                 </Container>
             </Navbar>
             <AddPlantModal showModal={showModal} onCloseModal={handleCloseModal} />
-        </React.Fragment>
+        </>
     )
 }

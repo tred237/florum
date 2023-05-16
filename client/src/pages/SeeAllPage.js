@@ -25,15 +25,17 @@ export default function SeeAllPage({ searchedPlants, climateType, category }) {
     },[plants, climateType, category])
 
     return(
-        <Container>
-            <h1>{climateType ? `${climateType} Climate Plants` : `${category}`}</h1>
-                <Row md={3}>
+        <Container className='w-75 pt-4'>
+            <h1 className='see-all-header'>{climateType ? `${climateType} Climate Plants` : `${category}`}</h1>
+            <Container className="see-all-container">
+                <Row className="see-all-row" md={3}>
                     {filteredPlants ? filteredPlants.filter(plant => !searchedPlants || plant.name.toLowerCase().startsWith(searchedPlants.toLowerCase())).map((plant) => {
-                        return <Col key={plant.id}>
-                                    <PlantCard plant={plant} />
+                        return <Col className="see-all-col" key={plant.id}>
+                                    <PlantCard plant={plant} isCarousel={false} />
                                </Col>
                     }) : null}
                 </Row>
+            </Container>
         </Container>
     )
 }

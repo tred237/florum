@@ -62,7 +62,7 @@ export default function AddPlant({ onCloseModal }) {
                                 value={formData.name}
                                 onChange={handleChange} />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2">
                     <Form.Label>Image URL *</Form.Label>
                     <Form.Control required 
                                 placeholder="Enter image url" 
@@ -70,7 +70,7 @@ export default function AddPlant({ onCloseModal }) {
                                 value={formData.image}
                                 onChange={handleChange} />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2">
                     <Form.Label>Climate *</Form.Label>
                     <Form.Control required
                                 as="select"
@@ -87,7 +87,7 @@ export default function AddPlant({ onCloseModal }) {
                         <option value="Tropical">Tropical</option>
                     </ Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2">
                     <Form.Label>Amount of Light *</Form.Label>
                     <Form.Control required 
                                 placeholder="Enter amount of light" 
@@ -95,7 +95,7 @@ export default function AddPlant({ onCloseModal }) {
                                 value={formData.light}
                                 onChange={handleChange} />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2">
                     <Form.Label>Amount of Water *</Form.Label>
                     <Form.Control required 
                                 placeholder="Enter amount of water" 
@@ -103,7 +103,7 @@ export default function AddPlant({ onCloseModal }) {
                                 value={formData.water}
                                 onChange={handleChange} />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2">
                     <Form.Label>Typical Size *</Form.Label>
                     <Form.Control required 
                                 placeholder="Enter average height" 
@@ -111,7 +111,7 @@ export default function AddPlant({ onCloseModal }) {
                                 value={formData.size}
                                 onChange={handleChange} />
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2">
                     <Form.Label>Has Flowers? *</Form.Label>
                     <Form.Control required
                                 as="select"
@@ -124,7 +124,7 @@ export default function AddPlant({ onCloseModal }) {
                         <option value="false">No</option>
                     </ Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2">
                     <Form.Label>Safe For Pets? *</Form.Label>
                     <Form.Control required
                                 as="select"
@@ -137,7 +137,7 @@ export default function AddPlant({ onCloseModal }) {
                         <option value="false">No</option>
                     </ Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2">
                     <Form.Label>Is Edible? *</Form.Label>
                     <Form.Control required
                                 as="select"
@@ -150,7 +150,7 @@ export default function AddPlant({ onCloseModal }) {
                         <option value="false">No</option>
                     </ Form.Control>
                 </Form.Group>
-                <Form.Group>
+                <Form.Group className="pt-2 pb-2">
                     <Form.Label>Description</Form.Label>
                     <Form.Control as="textarea"
                                 placeholder="Enter description" 

@@ -38,7 +38,7 @@ export default function AddForumEntry({ onCloseModal, onForumEntrySubmit }) {
 
     return (
         <Form onSubmit={handleSubmit}>
-           <Form.Group>
+           <Form.Group className="pb-2">
                 <Form.Control required 
                             as="textarea"
                             placeholder="" 

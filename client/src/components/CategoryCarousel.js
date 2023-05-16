@@ -15,25 +15,25 @@ export default function CategoryCarousel({ plants, categoryType }) {
     }
 
     if(splitCarousel()[0].length === 4) return (
-        <Carousel className='pb-3' interval={null} wrap={false}>
-            <Carousel.Item>
-                <Stack direction="horizontal" className="align-items-center" gap={3} style={{height: '320px'}}>
-                    {splitCarousel()[0].map(plant => <PlantCard key={plant.id} plant={plant} />)}
+        <Carousel className='carousel-outer' interval={null} wrap={false}>
+            <Carousel.Item className='carousel-inner'>
+                <Stack direction="horizontal" gap={3}>
+                    {splitCarousel()[0].map(plant => <PlantCard key={plant.id} plant={plant} isCarousel={true} />)}
                 </Stack>
             </Carousel.Item>
-            <Carousel.Item>
-                <Stack direction="horizontal" className="align-items-center" gap={3} style={{height: '320px'}}>
-                    {splitCarousel()[1].map(plant => <PlantCard key={plant.id} plant={plant} />)}
-                    <PlantCard categoryType={categoryType} />
+            <Carousel.Item className='carousel-inner'>
+                <Stack direction="horizontal" gap={3}>
+                    {splitCarousel()[1].map(plant => <PlantCard key={plant.id} plant={plant} isCarousel={true} />)}
+                    <PlantCard categoryType={categoryType} isCarousel={true} />
                 </Stack>
             </Carousel.Item>
         </Carousel>
     )
     else return (
-        <Carousel className='pb-3' interval={null} wrap={false}>
-            <Carousel.Item>
-                <Stack direction="horizontal" className="h-100 align-items-center" gap={3} style={{height: '320px'}}>
-                    {splitCarousel()[0].map(plant => <PlantCard key={plant.id} plant={plant} />)}
+        <Carousel interval={null} wrap={false}>
+            <Carousel.Item className='carousel-inner'>
+                <Stack direction="horizontal" gap={3}>
+                    {splitCarousel()[0].map(plant => <PlantCard key={plant.id} plant={plant} isCarousel={true} />)}
                     <PlantCard categoryType={categoryType} />
                 </Stack>
             </Carousel.Item>
