@@ -55,17 +55,19 @@ export default function PlantDetails() {
     else if(!plant.name) <Loading />
     else return (
         <Container>
-            <Container className='d-flex justify-content-center p-4 w-50 h-25'>
-                <Image className="img-fluid " src={plantImage()} alt={plant.name} onError={(e) => e.target.src = florumlogo} />
+            <Container className='d-flex justify-content-center p-4 w-75 h-25'>
+                <Image className="rounded plant-details-image" src={plantImage()} alt={plant.name} onError={(e) => e.target.src = florumlogo} />
             </Container>
             <Container className='d-flex justify-content-center'>
                 <PlantInformation />
             </Container>
-            <h2>{plant.description ? "Description" : null}</h2>
-            {plant.description}
-            <hr className="hr" />
-            <h2>Comments</h2>
-            {plant.forum_entries ? <PlantForum onForumEntrySubmit={handleForumEntrySubmit} onForumEntryEdit={handleForumEntryEdit} /> : null}
+            <Container className='w-75 pt-4'>
+                <h2>{plant.description ? "Description" : null}</h2>
+                <p className='pb-3'>{plant.description}</p>
+                <hr className="hr pt-3 m-0" />
+                <h2>Comments</h2>
+                {plant.forum_entries ? <PlantForum onForumEntrySubmit={handleForumEntrySubmit} onForumEntryEdit={handleForumEntryEdit} /> : null}
+            </Container>
         </Container>
     )
 }

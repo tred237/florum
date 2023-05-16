@@ -47,7 +47,9 @@ export default function App() {
             </Route>
         </Switch>
       </PlantsProvider>
-      <section className="p-5 text-center" />
+      <section className="footer">
+        <p className="footer-text">Florum</p>
+      </section>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import Card from "react-bootstrap/Card";
-import ListGroup from 'react-bootstrap/ListGroup';
 import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
 
 import { UserContext } from "../context/User";
 import EditForumEntryModal from "../modals/EditForumEntryModal";
@@ -14,17 +14,17 @@ export default function PlantForumEntry({ entryInfo, onForumEntryEdit }) {
     const handleCloseModal = () => setShowModal(false)
 
     return (
-        <ListGroup.Item>
+        <Container className="pt-3">
             <Card>
                 <Card.Header>
                     <p>{`${entryInfo.entry_username}  ${entryInfo.created_at} `}<i>{entryInfo.edited ? 'Edited' : null}</i></p>
-                    {user.id === entryInfo.user_id ? <Button onClick={handleShowModal}>Edit</Button> : null}
+                    {user.id === entryInfo.user_id ? <Button variant="success" onClick={handleShowModal}>Edit</Button> : null}
                 </Card.Header>
                 <Card.Body>
                     <p>{entryInfo.entry}</p>
                 </Card.Body>
             </Card>
             <EditForumEntryModal entryInfo={entryInfo} showModal={showModal} onCloseModal={handleCloseModal} onForumEntryEdit={onForumEntryEdit}/>
-        </ListGroup.Item>
+        </Container>
     )
 }
