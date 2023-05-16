@@ -7,13 +7,14 @@ import { UserContext } from '../context/User';
 export default function AddForumEntry({ entryInfo, onCloseModal, onForumEntryEdit }) {
     const { user } = useContext(UserContext)
     const [formData, setFormData] = useState(entryInfo.entry)
+    const [editEntryError, setEditEntryError] = useState([])
 
     const handleChange = (e) => setFormData(e.target.value)
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        if(entryInfo.user_id === user.id) {
+        if(entryInfo.user_id === user.id && entryInfo.entry !== formData) {
             fetch(`/forum_entries/${entryInfo.id}`, {
                 method: "PATCH",
                 headers: {
@@ -29,6 +30,7 @@ export default function AddForumEntry({ entryInfo, onCloseModal, onForumEntryEdi
                     onForumEntryEdit(entry)
                     onCloseModal()
                 })
+                else r.json().then(err => setEditEntryError(err.errors))
             })
         }
     }
@@ -42,6 +44,7 @@ export default function AddForumEntry({ entryInfo, onCloseModal, onForumEntryEdi
                             value={formData}
                             onChange={handleChange} />
             </Form.Group>
+            <p className="error-message pb-2">{editEntryError ? editEntryError[0] : null}</p>
             <Button variant="success" type="submit">Edit Comment</Button>
         </Form>
     )
