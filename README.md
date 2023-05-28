@@ -11,7 +11,7 @@ A plant cataloging application where users can learn about new plants and how to
 
 ---
 
-Installation
+### Installation
 
 1. Fork this repository
    
@@ -27,17 +27,32 @@ Installation
 ```
 git clone <pasted-ssh-key>
 ```
-5. Navigate to the root of the cloned repository and install dependancies
+5. Navigate to the `root` of the cloned repository and install the back-end dependancies
 ```
 cd florum
 bundle install
+```
+
+6. In a new terminal, navigate to the `client` directory from the cloned repository's `root` and install the front-end dependancies. Keep this terminal open.
+```
+cd client
 npm install
 ```
-6. In the same directory, start the app using:
+
+---
+
+### Usage
+
+7. In the same directory that you installed the back-end dependancies in, start Rails using:
 ```
 rails s
+```
+
+8. In the same directory that you installed the front-end dependancies in, start React using:
+```
 npm start
 ```
+
 - You can access the Rails API routes at: http://localhost:3000
 - You can access the Florum front-end at: http://localhost:4000
 
@@ -49,4 +64,8 @@ User |---< ForumEntry >---| Plant
 User |---< Plant
 ```
 
+---
 
+### License
+
+[MIT](https://choosealicense.com/licenses/mit/)
