@@ -1,4 +1,7 @@
-User.create!(email: 'trevor@email.com', username: "trevor", password: 'T3ster!', password_confirmation: 'T3ster!')
+User.create!(email: 'trevor@email.com', username: "Trevor", password: 'T3ster!', password_confirmation: 'T3ster!')
+User.create!(email: 'jane@email.com', username: "Jane", password: 'T3ster!', password_confirmation: 'T3ster!')
+User.create!(email: 'mike@email.com', username: "Mike", password: 'T3ster!', password_confirmation: 'T3ster!')
+User.create!(email: 'lauren@email.com', username: "Lauren", password: 'T3ster!', password_confirmation: 'T3ster!')
 
 Plant.create!(
     name: "Lipstick Plant",
@@ -195,3 +198,7 @@ Plant.create!(
     blooms: true,
     owner_id: 1
 )
+
+(1..100).each do |i|
+    ForumEntry.create!(user_id: rand(1..4), plant_id: rand(1..13), entry: Faker::Lorem.sentence(word_count: rand(3..25), random_words_to_add: 0))
+end
