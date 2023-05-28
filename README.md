@@ -66,6 +66,13 @@ User |---< Plant
 
 ---
 
+### Resources
+
+[React Bootstrap](https://react-bootstrap.github.io/)\
+[Faker](https://github.com/faker-ruby/faker)
+
+---
+
 ### Contributions
 
 Contributions are welcome, but please open an issue first to discuss what you would like to change.
