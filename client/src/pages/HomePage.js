@@ -31,8 +31,6 @@ export default function HomePage() {
         }
     },[plants])
 
-    console.log(user)
-
     return(
         <Container className='w-75 pt-3'>
             <h1>{`Welcome ${user.username}!`}</h1>

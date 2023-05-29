@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
-    rescue_from ActiveRecord::RecordInvalid, with: :plant_record_invalid_response
-    rescue_from ActiveRecord::RecordNotFound, with: :plant_record_not_found_repsonse
+    rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_error_message
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_error_response
 
     def index
         plants = Plant.all.order(:name)
@@ -46,13 +46,5 @@ class PlantsController < ApplicationController
 
     def plant_update_params
         params.permit(:name, :image, :light, :water, :size, :description, :safe_for_pets, :edible, :blooms, :climate)
-    end
-
-    def plant_record_invalid_response(invalid)
-        render json: {errors: invalid.record.errors.full_messages}, status: :unprocessable_entity
-    end
-
-    def plant_record_not_found_repsonse(invalid)
-        render json: {error: "Plant not found"}, status: :not_found
     end
 end

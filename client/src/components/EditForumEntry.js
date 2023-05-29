@@ -1,8 +1,10 @@
 import { useState, useContext } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
 import { UserContext } from '../context/User';
+import ResponseError from './ResponseError';
 
 export default function AddForumEntry({ entryInfo, onCloseModal, onForumEntryEdit }) {
     const { user } = useContext(UserContext)
@@ -44,7 +46,9 @@ export default function AddForumEntry({ entryInfo, onCloseModal, onForumEntryEdi
                             value={formData}
                             onChange={handleChange} />
             </Form.Group>
-            <p className="error-message pb-2">{editEntryError ? editEntryError[0] : null}</p>
+            <Container className="pb-2">
+                {editEntryError ? editEntryError.map((e, index) => <ResponseError key={index} responseItem={e} />) : null}
+            </Container>
             <Button variant="success" type="submit">Edit Comment</Button>
         </Form>
     )
