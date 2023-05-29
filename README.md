@@ -13,42 +13,42 @@ A plant cataloging application where users can learn about new plants and how to
 
 ### Installation
 
-1. Fork this repository
+1. Fork this repository:
    
 ![image](https://user-images.githubusercontent.com/103388556/189546584-8ec5fef7-4d7d-4c47-ae6b-f6e6ae834a69.png)
   
 ![image](https://user-images.githubusercontent.com/103388556/189546761-f0f05411-1967-46c7-b081-063bc6951ae0.png)
 
-3. Copy the SSH key from the forked repository.
+3. Copy the SSH key from the forked repository:
 
 ![image](https://user-images.githubusercontent.com/103388556/189546817-4d32dcbb-e79e-4220-8fc2-c573d21e9cc1.png)
   
-4. In your terminal, clone the repository using the SSH key you copied from the fork.
+4. In your terminal, clone the repository using the SSH key you copied from the fork:
 ```
 git clone <pasted-ssh-key>
 ```
-5. Navigate to the `root` of the cloned repository and install the back-end dependancies
+5. Navigate to the `root` of the cloned repository and install the back-end and front-end dependancies:
 ```
 cd florum
 bundle install
+npm install --prefix client
 ```
 
-6. In a new terminal, navigate to the `client` directory from the cloned repository's `root` and install the front-end dependancies. Keep this terminal open.
+6. Build the database migrations and seed the database:
 ```
-cd client
-npm install
+rails db:migrate db:seed
 ```
 
 ---
 
 ### Usage
 
-7. In the same directory that you installed the back-end dependancies in, start Rails using:
+1. Navigate to the project's root directory and start Rails using:
 ```
 rails s
 ```
 
-8. In the same directory that you installed the front-end dependancies in, start React using:
+2. Open a new terminal. Navigate to the project's root directory and start React using:
 ```
 npm start
 ```
