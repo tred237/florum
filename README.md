@@ -50,7 +50,7 @@ rails s
 
 2. Open a new terminal. Navigate to the project's root directory and start React using:
 ```
-npm start
+npm start --prefix client
 ```
 
 - You can access the Rails API routes at: http://localhost:3000
