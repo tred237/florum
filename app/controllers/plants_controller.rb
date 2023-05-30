@@ -29,7 +29,6 @@ class PlantsController < ApplicationController
 
     def destroy
         plant = find_plant
-        plant.forum_entries.destroy_all
         plant.destroy
         head :no_content
     end
