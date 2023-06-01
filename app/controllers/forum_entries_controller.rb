@@ -3,7 +3,8 @@ class ForumEntriesController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_error_response
 
     def create
-        entry = ForumEntry.create!(entry_params)
+        current_user = User.find(session[:user_id])
+        entry = current_user.forum_entries.create!(entry_params)
         render json: entry, status: :created
     end
 
@@ -19,7 +20,7 @@ class ForumEntriesController < ApplicationController
     end
 
     private
-
+    
     def entry_params
         params.permit(:user_id, :plant_id, :entry)
     end
